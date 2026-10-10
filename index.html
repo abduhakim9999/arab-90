@@ -292,13 +292,13 @@ function cls(F){
 function applyRes(){
   if(typeof RES==="undefined"||!RES)return;
   document.querySelectorAll(".ws span.vok,.ws span.vbad,.ws span.vunk").forEach(function(e){e.classList.remove("vok","vbad","vunk")});
-  for(var l in RES)for(var w in RES[l]){var e=document.querySelector('.ws span[data-i="'+l+'-'+w+'"]');if(e)e.classList.add("v"+RES[l][w])}
+  for(var l in RES)for(var w in RES[l]){var e=document.querySelector('.ws span[data-i="'+l+'-'+w+'"]');if(e&&RES[l][w]=="bad")e.classList.add("vbad")}
 }
 function rmsg(l,h){$("rs"+l).innerHTML=h}
 function chk(l,btn){
   if(!CAL){rmsg(l,"Аввал юқоридаги «Овозни созлаш» тугмасини босинг.");return}
   if(recL===null){
-    au.pause();ctx().resume();
+    au.pause();ctx().resume();delete RES[l];delete TXT[l];applyRes();rmsg(l,"");
     startRec().then(function(){recL=l;btn.textContent="■ Тўхтатиш";btn.classList.add("rec");rmsg(l,"Қаторни ўқинг...")})
     .catch(function(){rmsg(l,"Микрофонга рухсат берилмади. Ҳаволани Chrome браузерида очинг.")});
   }else if(recL===l){
@@ -308,11 +308,10 @@ function chk(l,btn){
   }
 }
 function summ(l){
-  var ok=0,bad=0,unk=0,h="";
-  for(var w in RES[l]){var s=RES[l][w];if(s=="ok")ok++;else if(s=="bad")bad++;else unk++}
-  var t=TXT[l]||{};
-  for(var w in t)h+='<div class="bd"><span class="ar" style="font-size:22px">'+get(l+"-"+w).v+'</span> '+t[w]+'</div>';
-  return '<div>✓ '+ok+' та тўғри, ✗ '+bad+' та хато, ? '+unk+' та аниқ эмас</div>'+h;
+  var h="",ok=0,t=TXT[l]||{};
+  for(var w in RES[l]){if(RES[l][w]=="ok")ok++;else if(RES[l][w]=="bad")h+='<div class="bd"><span class="ar" style="font-size:22px">'+get(l+"-"+w).v+'</span> '+t[w]+'</div>'}
+  if(h)return h;
+  return ok?"Хато топилмади.":"Овоз аниқ эшитилмади, қайта ўқиб кўринг.";
 }
 var TXT={};
 function analyze(l,x){
