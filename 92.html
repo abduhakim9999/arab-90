@@ -322,8 +322,8 @@ function irbRows(k,o,WP,q){
   var g=gtype(k);if(g)h+='<div class="jt">'+g+'</div>';
   h+='</div>';
   var x="";(E.x||[]).forEach(function(s){x+='<div class="xi">'+arw(s)+'</div>'});
-  if(E.a){var a="";E.a.forEach(function(p){a+='<div>'+(p[0]?'<b>'+p[0]+':</b> ':'')+p[1]+'</div>'});x+='<div class="irb"><i>Арабча эъроб</i>'+a+'</div>'}
-  if(x)h+='<button class="qmb tb" onclick="tgl(this)">💡 Тушунтириш</button><div class="qmx hide">'+x+'</div>';
+  if(x)h+='<button class="qmb tb" onclick="tgl(this)">💡 Эслатма</button><div class="qmx hide">'+x+'</div>';
+  if(E.a){var a="";E.a.forEach(function(p){a+='<div>'+(p[0]?'<b>'+p[0]+':</b> ':'')+p[1]+'</div>'});h+='<button class="qmb" onclick="tgl(this)">📜 Арабча эъроб</button><div class="qmx hide"><div class="irb">'+a+'</div></div>'}
   if(E.o){var t='';E.o.forEach(function(p){t+='<div class="oi"><b>'+arw(p[0])+'</b> '+arw(p[1])+'</div>'});
     h+='<button class="qmb" onclick="tgl(this)">⚖️ Бошқа фикрлар</button><div class="qmx hide"><div class="qmn">📘 белгилидан бошқалари — Ҳужжатда йўқ, умумий наҳв китобларидан</div>'+t+'</div>'}
   if(!q&&QMP[k]){var m='';QMP[k].forEach(function(t){var T=QT[t];m+='<div class="qmt"><b>'+arw(T[0])+'</b><ul>'+T[1].map(function(s){return '<li>'+arw(s)+'</li>'}).join('')+'</ul></div>'});
