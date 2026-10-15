@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap">
 <script src="tg.js"></script>
 <style>
-:root{--bg:#f4eee0;--cd:#fffdf7;--tx:#1b2a22;--mu:#5d6a61;--ac:#0d6b45;--hl:#c08a2e;--bd:#e4d9bf;--au:#a8781f;--au1:#f6dc94;--au2:#c99434;--em1:#0f7a4f;--em2:#094a32;--ind:rgba(13,107,69,.10);--plw:rgba(201,148,52,.30)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.26)}}
-:root[data-theme="dark"]{--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.26)}
+:root{--bg:#f7f5ef;--cd:#ffffff;--tx:#1c1f1d;--mu:#6b716c;--ac:#0f7a4f;--hl:#c99434;--bd:#ebe6da;--au:#8a6418;--au1:#f6dc94;--au2:#c99434;--em1:#13865a;--em2:#0c5e3f;--ind:rgba(15,122,79,.10);--plw:rgba(214,160,60,.42);--tint:rgba(15,122,79,.10);--sh:0 1px 2px rgba(20,30,25,.05),0 6px 18px rgba(20,30,25,.06);--glass:rgba(255,255,255,.82)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.32);--tint:rgba(220,180,96,.15);--sh:none;--glass:rgba(10,48,35,.86)}}
+:root[data-theme="dark"]{--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.32);--tint:rgba(220,180,96,.15);--sh:none;--glass:rgba(10,48,35,.86)}
 body{background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23b8862f' stroke-opacity='.10' stroke-width='1.2'%3E%3Crect x='18' y='18' width='28' height='28'/%3E%3Crect x='18' y='18' width='28' height='28' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 32H8M56 32H64M32 0V8M32 56V64'/%3E%3C/g%3E%3C/svg%3E");background-attachment:fixed}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23e2bd68' stroke-opacity='.09' stroke-width='1.2'%3E%3Crect x='18' y='18' width='28' height='28'/%3E%3Crect x='18' y='18' width='28' height='28' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 32H8M56 32H64M32 0V8M32 56V64'/%3E%3C/g%3E%3C/svg%3E")}}
 *{box-sizing:border-box}
@@ -74,6 +74,23 @@ body{margin:0;color:var(--tx);font-family:system-ui,-apple-system,sans-serif;pad
 .it{background:var(--cd)}
 .sec{color:var(--au)!important}
 .pg.ok{color:var(--ok)}
+
+/* minimal (iPhone uslubi) */
+@media (prefers-color-scheme:light){body{background-image:none!important}}
+:root[data-theme="light"] body{background-image:none!important}
+
+.hd{background:none!important;border:none!important;box-shadow:none!important;padding:6px 2px!important;margin:4px 0 16px!important}
+.hd::after{display:none}
+.hd img{width:52px!important;height:52px!important;border-radius:13px!important;box-shadow:var(--sh)!important}
+.hd h1{color:var(--tx)!important;font-size:30px!important;letter-spacing:-.02em}
+.hd p{color:var(--mu)!important}
+.it,.cd:not(.a){border-color:transparent!important;box-shadow:var(--sh);border-radius:18px!important}
+@media (prefers-color-scheme:dark){.it,.cd:not(.a){border-color:var(--bd)!important}}
+.cd.a{border-color:transparent!important;box-shadow:0 8px 22px rgba(12,94,63,.25)}
+.nm{background:var(--tint)!important;color:var(--ac)!important;box-shadow:none!important}
+.sec{color:var(--mu)!important;font-weight:600!important}
+.bar{background:rgba(127,127,127,.15)!important}
+.cd.a .bar{background:rgba(255,255,255,.25)!important}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes fill{from{width:0}}
 @keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}

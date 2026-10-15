@@ -1,7 +1,7 @@
 /* Zumrad va tilla mavzusi */
-:root{--bg:#f4eee0;--cd:#fffdf7;--tx:#1b2a22;--mu:#5d6a61;--ac:#0d6b45;--hl:#c08a2e;--bd:#e4d9bf;--au:#a8781f;--au1:#f6dc94;--au2:#c99434;--em1:#0f7a4f;--em2:#094a32;--ind:rgba(13,107,69,.10);--plw:rgba(201,148,52,.30)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.26)}}
-:root[data-theme="dark"]{--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.26)}
+:root{--bg:#f7f5ef;--cd:#ffffff;--tx:#1c1f1d;--mu:#6b716c;--ac:#0f7a4f;--hl:#c99434;--bd:#ebe6da;--au:#8a6418;--au1:#f6dc94;--au2:#c99434;--em1:#13865a;--em2:#0c5e3f;--ind:rgba(15,122,79,.10);--plw:rgba(214,160,60,.42);--tint:rgba(15,122,79,.10);--sh:0 1px 2px rgba(20,30,25,.05),0 6px 18px rgba(20,30,25,.06);--glass:rgba(255,255,255,.82)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.32);--tint:rgba(220,180,96,.15);--sh:none;--glass:rgba(10,48,35,.86)}}
+:root[data-theme="dark"]{--bg:#06281d;--cd:#0c3527;--tx:#f1e9d4;--mu:#a6b7a8;--ac:#dcb460;--hl:#e8c06a;--bd:#1b4a38;--au:#e2bd68;--au1:#f6dc94;--au2:#c99434;--em1:#0f5c3f;--em2:#083626;--ind:rgba(220,180,96,.14);--plw:rgba(226,189,104,.32);--tint:rgba(220,180,96,.15);--sh:none;--glass:rgba(10,48,35,.86)}
 body{background-color:var(--bg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23b8862f' stroke-opacity='.10' stroke-width='1.2'%3E%3Crect x='18' y='18' width='28' height='28'/%3E%3Crect x='18' y='18' width='28' height='28' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 32H8M56 32H64M32 0V8M32 56V64'/%3E%3C/g%3E%3C/svg%3E");background-attachment:fixed}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23e2bd68' stroke-opacity='.09' stroke-width='1.2'%3E%3Crect x='18' y='18' width='28' height='28'/%3E%3Crect x='18' y='18' width='28' height='28' transform='rotate(45 32 32)'/%3E%3Cpath d='M0 32H8M56 32H64M32 0V8M32 56V64'/%3E%3C/g%3E%3C/svg%3E")}}
 /* Yangi qolip: sarlavha, pastki panel, pleyer, animatsiyalar */
@@ -66,6 +66,40 @@ body.nop .pbar{transform:translateY(24px);opacity:0;pointer-events:none}
 .pbar .tk i{background:linear-gradient(90deg,var(--au2),var(--au1))}
 .pbar .sp{color:var(--au1);border-color:rgba(246,220,148,.6)}
 .dh .q{background:var(--cd)}
+
+
+/* minimal (iPhone uslubi) */
+@media (prefers-color-scheme:light){body{background-image:none!important}}
+:root[data-theme="light"] body{background-image:none!important}
+
+.ln{border-color:transparent!important;box-shadow:var(--sh);border-radius:18px!important}
+@media (prefers-color-scheme:dark){.ln{border-color:var(--bd)!important}}
+.ln.cur{border-color:var(--au2)!important;box-shadow:0 0 0 1.5px var(--au2),0 6px 18px rgba(201,148,52,.18)}
+.ws span.pl,.ts.pl,.ws span.on,.ts.on{color:var(--tx)!important}
+#tg,#tt,#bl{border:none!important;background:var(--cd)!important;color:var(--tx)!important;box-shadow:var(--sh)!important}
+@media (prefers-color-scheme:dark){#tg,#tt,#bl{border:1px solid var(--bd)!important}}
+#tg.on,#tt.on,#bl.on{background:var(--tint)!important;color:var(--ac)!important;font-weight:700}
+.dh .q{border:none;box-shadow:var(--sh)}
+.dh .tt b{font-size:18px}
+.tabs{background:var(--glass);-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border-top:1px solid rgba(0,0,0,.06)}
+@media (prefers-color-scheme:dark){.tabs{border-top-color:var(--bd)}}
+.pbar{background:var(--glass)!important;color:var(--tx)!important;-webkit-backdrop-filter:blur(20px) saturate(180%);backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(0,0,0,.05)!important;box-shadow:0 8px 28px rgba(20,30,25,.16)!important}
+@media (prefers-color-scheme:dark){.pbar{border-color:var(--bd)!important}}
+.pbar .tk div{background:rgba(127,127,127,.22)!important}
+.pbar .sp{color:var(--ac)!important;border-color:var(--tint)!important;background:var(--tint)!important}
+.sheet{border-radius:22px 22px 0 0!important}
+
+
+/* darsda tilla yo'q: tinch, minimal, ko'zni matndan chalg'itmaydi */
+:root{--plw:rgba(15,122,79,.17)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ac:#7fd4ad;--hl:#7fd4ad;--plw:rgba(127,212,173,.18);--tint:rgba(127,212,173,.14)}}
+:root[data-theme="dark"]{--ac:#7fd4ad;--hl:#7fd4ad;--plw:rgba(127,212,173,.18);--tint:rgba(127,212,173,.14)}
+.dh .tt small{color:var(--mu)!important;font-weight:500!important}
+.ln.cur{border-color:transparent!important;box-shadow:0 0 0 1.5px rgba(15,122,79,.30),var(--sh)!important}
+@media (prefers-color-scheme:dark){.ln.cur{border-color:transparent!important;box-shadow:0 0 0 1.5px rgba(127,212,173,.35)!important}}
+.pbar .pb{background:var(--ac)!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.18)!important}
+@media (prefers-color-scheme:dark){.pbar .pb{color:#06281d!important}}
+.pbar .tk i{background:var(--ac)!important}
 
 /* izoh oynasi */
 #sh{z-index:30!important}
