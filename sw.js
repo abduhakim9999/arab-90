@@ -1,5 +1,5 @@
 /* Internetsiz ishlash: avval saqlangan nusxa ko'rsatiladi, orqada yangisi yuklanadi */
-var C = 'arab-tili-v3';
+var C = 'arab-tili-v4';
 var FILES = ["./", "index.html", "tg.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "70.html", "92.html"];
 
 self.addEventListener('install', function (e) {
