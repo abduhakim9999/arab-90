@@ -41,6 +41,7 @@ body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-
 <body>
 <div class="w">
   <div class="hd"><img src="icon-192.png" alt=""><div><h1>Араб тили</h1><p>Дарслар</p></div></div>
+  <div class="ls" id="fl" style="margin-bottom:10px"></div>
   <div class="ls" id="ls"></div>
   <button class="add" id="add">📲 Бош экранга қўшиш</button>
   <div class="tip" id="tip">iPhone'да: пастдаги «Улашиш» тугмаси → «На экран Домой / Add to Home Screen»</div>
@@ -87,6 +88,26 @@ var ios=/iphone|ipad|ipod/i.test(navigator.userAgent),standalone=window.navigato
 setTimeout(function(){if(ios&&!standalone&&!document.documentElement.classList.contains("in-tg"))tip.classList.add("on")},800);
 window.addEventListener("pageshow",function(){render()});
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){});
+</script>
+<script>
+/* Феъллар: bosh sahifadagi qator (natijalar feellar.html'dan) */
+(function(){
+  var NS=10,CL=null;
+  function best(){
+    var b={};try{b=JSON.parse(localStorage.getItem("fl200_best")||"{}")||{}}catch(e){}
+    if(CL){try{var c=JSON.parse(CL).best||{};for(var p in c)if(b[p]==null||c[p]>b[p])b[p]=c[p]}catch(e){}}
+    return b;
+  }
+  function draw(){
+    var b=best(),n=Object.keys(b).length,txt=n?"Қисмлар: "+n+" / "+NS:"200 феъл · "+NS+" қисм",cls="";
+    if(n>=NS){txt="✓ "+NS+" / "+NS+" қисм";cls=" ok"}
+    document.getElementById("fl").innerHTML='<a class="it" href="feellar.html"><div class="nm" style="font-family:\'Noto Naskh Arabic\',serif;font-size:24px">ف</div><div class="mid"><div class="t">Феъллар</div><div class="ar">الْأَفْعَالُ</div><div class="pg'+cls+'">'+txt+'</div>'+(n?'<div class="bar"><i style="width:'+Math.round(n*100/NS)+'%"></i></div>':'')+'</div></a>';
+  }
+  draw();
+  function tg(){var w=Telegram.WebApp;if(w.CloudStorage&&w.isVersionAtLeast("6.9"))w.CloudStorage.getItem("fl200_sync",function(e,v){if(!e&&v){CL=v;draw()}})}
+  if(document.documentElement.classList.contains("in-tg"))tg();else document.addEventListener("tgready",tg);
+  window.addEventListener("pageshow",draw);
+})();
 </script>
 </body>
 </html>

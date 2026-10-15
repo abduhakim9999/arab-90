@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Феъллар</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f766e">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<script src="tg.js"></script>
+<style>
+@font-face{font-family:'Sch';src:url(data:font/woff;base64,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) format('woff');font-display:block}
+:root{--bg:#f6f3ec;--cd:#fff;--tx:#1e2a26;--mu:#6b756f;--ac:#0f766e;--ai:#fff;--as:#e1f0ed;--bd:#e0dccf;--ok:#15803d;--oks:#e3f3e7;--bad:#b42318;--bads:#fbe4e1;--gold:#b7791f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171a;--cd:#19242a;--tx:#e8efec;--mu:#93a29b;--ac:#2dd4bf;--ai:#10171a;--as:#163634;--bd:#2a3a41;--ok:#4ade80;--oks:#173325;--bad:#f87171;--bads:#3b2224;--gold:#f0b94a}}
+:root[data-theme="dark"]{--bg:#10171a;--cd:#19242a;--tx:#e8efec;--mu:#93a29b;--ac:#2dd4bf;--ai:#10171a;--as:#163634;--bd:#2a3a41;--ok:#4ade80;--oks:#173325;--bad:#f87171;--bads:#3b2224;--gold:#f0b94a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:18px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.w{max-width:520px;margin:0 auto;padding:18px 16px 48px}
+.hd{display:flex;align-items:center;gap:12px;margin:4px 0 18px}
+.lg{width:48px;height:48px;flex-shrink:0;border-radius:12px;background:var(--ac);color:var(--ai);display:flex;align-items:center;justify-content:center;font-size:30px;line-height:1}
+.hd h1{font-size:22px;margin:0}
+.hd p{margin:2px 0 0;font-size:14px;color:var(--mu)}
+h2{font-size:20px;margin:0 0 12px}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:0 0 12px}
+.ar{font-family:"Sch","Noto Naskh Arabic",serif;font-feature-settings:"cv62" 1;direction:rtl;unicode-bidi:isolate;line-height:2.25}
+.big{font-size:3.4rem;text-align:center;margin:2px 0}
+.mid{font-size:2.1rem}
+.mn{font-size:1.05rem}
+.c{text-align:center}
+.lbl{color:var(--mu);font-size:.85rem}
+.note{font-size:.9rem;color:var(--mu)}
+.note a{color:var(--ac)}
+.btn{display:block;width:100%;padding:14px;border-radius:12px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font:inherit;font-weight:600;cursor:pointer;text-align:center;margin:0 0 10px;-webkit-tap-highlight-color:transparent}
+.btn.pri{background:var(--ac);color:var(--ai);border-color:var(--ac)}
+.btn:active,.set:active,.opt:active{transform:scale(.99)}
+.row2{display:flex;gap:10px}.row2 .btn{flex:1;white-space:nowrap;padding-left:8px;padding-right:8px}
+.big-btn{font-size:1.15rem;padding:17px}
+.back{background:none;border:none;color:var(--ac);font:inherit;font-size:1.5rem;font-weight:600;padding:2px 0;min-width:44px;text-align:left;cursor:pointer;margin:0 0 6px;text-decoration:none;display:inline-block}
+.in-tg .nav{display:none}
+.sets{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 12px}
+.set{display:block;min-height:88px;padding:12px 14px;border-radius:14px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.set b{display:block;font-size:1.05rem}
+.set>span{display:block;min-height:1.4em}
+.set .rng{font-size:.8rem;color:var(--mu)}
+.set.done{border-color:var(--ok);background:var(--oks)}
+.set.cur{border-color:var(--ac);box-shadow:inset 0 0 0 1px var(--ac)}
+.star{color:var(--gold);letter-spacing:1px;white-space:nowrap}.st0{color:var(--bd)}
+.bigstar{font-size:2.6rem;margin:6px 0}
+.meta{display:flex;justify-content:space-between;align-items:center;color:var(--mu);font-size:.9rem;margin:0 0 8px;gap:8px}
+.bar{height:6px;background:var(--bd);border-radius:4px;overflow:hidden;margin:0 0 14px}
+.bar>i{display:block;height:100%;background:var(--ac)}
+.stage{display:inline-block;background:var(--as);color:var(--ac);font-weight:700;font-size:.92rem;padding:5px 12px;border-radius:10px;margin:0 0 12px}
+.opt{display:block;width:100%;text-align:right;padding:12px 16px;border-radius:14px;border:2px solid var(--bd);background:var(--cd);color:var(--tx);font:inherit;cursor:pointer;margin:0 0 12px;-webkit-tap-highlight-color:transparent}
+.opt.plain{text-align:left;padding:16px}
+.opt .mn{font-size:1.08rem}
+.opt.ok{border-color:var(--ok);background:var(--oks)}
+.opt.bad{border-color:var(--bad);background:var(--bads)}
+.opt:disabled{cursor:default;color:var(--tx);opacity:1}
+.fr{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;font-size:2rem;line-height:1.9;text-align:center}
+.fr>span{display:flex;align-items:center;justify-content:center;border-left:1px dashed var(--bd);padding:0 2px}
+.fr>span:last-child{border-left:none}
+.fr-head{display:grid;grid-template-columns:repeat(3,1fr);direction:rtl;color:var(--mu);font-size:.8rem;margin-bottom:-6px;text-align:center}
+.opt.bad .df{box-shadow:inset 0 0 0 2px var(--bad);border-radius:8px}.opt.ok .df{box-shadow:inset 0 0 0 2px var(--ok);border-radius:8px}
+.fb{padding:12px 14px;border-radius:12px;margin:0 0 12px;font-weight:600}
+.fb.ok{background:var(--oks);color:var(--ok)}.fb.bad{background:var(--bads);color:var(--bad)}
+details summary{cursor:pointer;font-weight:600;margin:0 0 8px}
+.mist{border-top:1px solid var(--bd);padding:10px 0}
+table{width:100%;border-collapse:collapse}
+td,th{padding:10px 6px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+th{color:var(--mu);font-weight:600;font-size:.85rem}
+tr.me td{background:var(--as)}
+.parts{font-size:.8rem;color:var(--mu);margin-top:2px;line-height:1.4}
+input[type=search]{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--bd);background:var(--cd);color:var(--tx);font:inherit;margin:0 0 12px;-webkit-appearance:none;appearance:none}
+input[type=search]:focus{outline:2px solid var(--ac);outline-offset:-1px}
+.lx{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:8px 14px 12px;margin:0 0 10px;content-visibility:auto;contain-intrinsic-size:auto 150px}
+.lx-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.lx-n{color:var(--mu);font-size:.8rem;white-space:nowrap}
+.lx-m{font-size:2rem;line-height:1.9}
+.lx .fr{font-size:1.55rem;line-height:1.8;margin:0 0 4px}
+.lx .mn{font-size:1rem}
+.lx-p{color:var(--mu);font-size:.85rem;font-weight:600;margin:16px 2px 8px}
+.lx-p:first-child{margin-top:4px}
+</style>
+</head>
+<body>
+<div class="w" id="app"></div>
+<script>
+const API = 'https://script.google.com/macros/s/AKfycbxLWc5R2a1OA9vHePdAZsp-7hzkx2jqBucR65cGv3TZST0L7jlceLbWD64-YfkrP84A/exec';
+const BOT_LINK = 'https://t.me/Arabtilihivar_bot/darslar';
+const ITEMS = [
+{"n":[1],"m":"قَالَ","mu":"يَقُولُ","am":"قُلْ","ms":"قَوْلٌ","me":["деди, айтди"],"v":{"am":"قَلْ"}},
+{"n":[2],"m":"شَاءَ","mu":"يَشَاءُ","am":"شَأْ","ms":"مَشِيئَةٌ","me":["хоҳлади"],"v":{"am":"شُأْ","ms":"مُشِيئَةٌ"}},
+{"n":[3,4,8],"m":"صَلَّى","mu":"يُصَلِّي","am":"صَلِّ","ms":"صَلَاةٌ","me":["1. шарафли қилди","2. саловат айтди, шарафлади","3. намоз ўқиди"],"v":{"mu":"يَصَلِّي","am":"صُلِّ","ms":"صُلَاةٌ"}},
+{"n":[5],"m":"سَلَّمَ","mu":"يُسَلِّمُ","am":"سَلِّمْ","ms":"تَسْلِيمٌ","me":["саломат (омон) қилди"],"v":{"mu":"يَسَلِّمُ","am":"سُلِّمْ","ms":"تُسْلِيمٌ"}},
+{"n":[6],"m":"تَوَضَّأَ","mu":"يَتَوَضَّأُ","am":"تَوَضَّأْ","ms":"تَوَضُّؤٌ، وُضُوءٌ","me":["таҳорат қилди"],"v":{"mu":"يَتَوَضِّأُ","am":"تُوَضَّأْ","ms":"تَوُضُّؤٌ، وُضُوءٌ"}},
+{"n":[7,57],"m":"قَرَأَ","mu":"يَقْرَأُ","am":"اِقْرَأْ","ms":"قِرَاءَةٌ","me":["ўқиди","китоб ўқиди, мутолаа қилди"],"v":{"mu":"يَقْرِأُ","am":"اُقْرَأْ","ms":"قَرَاءَةٌ"}},
+{"n":[9],"m":"سَكَنَ","mu":"يَسْكُنُ","am":"اُسْكُنْ","ms":"سَكَنٌ، سُكْنَى","me":["яшади, истиқомат қилди"],"v":{"mu":"يَسْكِنُ","am":"اِسْكُنْ","ms":"سُكَنٌ، سُكْنَى"}},
+{"n":[10],"m":"شَاهَدَ","mu":"يُشَاهِدُ","am":"شَاهِدْ","ms":"مُشَاهَدَةٌ","me":["кўрди"],"v":{"mu":"يَشَاهِدُ","am":"شَاهَدْ","ms":"مِشَاهَدَةٌ"}},
+{"n":[11],"m":"أَرَادَ","mu":"يُرِيدُ","am":"أَرِدْ","ms":"إِرَادَةٌ","me":["истади, ирода қилди"],"v":{"mu":"يَرِيدُ","am":"اِرِدْ","ms":"أَرَادَةٌ"}},
+{"n":[12],"m":"تَفَضَّلَ","mu":"يَتَفَضَّلُ","am":"تَفَضَّلْ","ms":"تَفَضُّلٌ","me":["марҳамат қилди"],"v":{"mu":"يَتَفَضِّلُ","am":"تُفَضَّلْ","ms":"تُفَضُّلٌ"}},
+{"n":[13],"m":"اِسْتَيْقَظَ","mu":"يَسْتَيْقِظُ","am":"اِسْتَيْقِظْ","ms":"اِسْتِيقَاظٌ","me":["уйғонди"],"v":{"mu":"يَسْتَيْقُظُ","am":"اُسْتَيْقِظْ","ms":"اِسْتَيقَاظٌ"}},
+{"n":[14],"m":"نَامَ","mu":"يَنَامُ","am":"نَمْ","ms":"نَوْمٌ","me":["ухлади"],"v":{"am":"نُمْ"}},
+{"n":[15],"m":"فَعَلَ","mu":"يَفْعَلُ","am":"اِفْعَلْ","ms":"فَعْلٌ","me":["қилди; иш қилди"],"v":{"mu":"يَفْعِلُ","am":"اُفْعَلْ","ms":"فُعْلٌ"}},
+{"n":[16],"m":"ذَهَبَ","mu":"يَذْهَبُ","am":"اِذْهَبْ","ms":"ذَهَابٌ","me":["1. кетди; борди"],"v":{"mu":"يَذْهِبُ","am":"اُذْهَبْ","ms":"ذُهَابٌ"}},
+{"n":[17],"m":"كَنَسَ","mu":"يَكْنُسُ","am":"اُكْنُسْ","ms":"كَنْسٌ","me":["супурди"],"v":{"mu":"يَكْنَسُ","am":"اِكْنُسْ"}},
+{"n":[18],"m":"غَسَلَ","mu":"يَغْسِلُ","am":"اِغْسِلْ","ms":"غَسْلٌ","me":["ювди"],"v":{"mu":"يَغْسُلُ","am":"اُغْسِلْ"}},
+{"n":[19],"m":"كَوَى","mu":"يَكْوِي","am":"اِكْوِ","ms":"كَيٌّ","me":["дазмоллади, дазмол қилди"],"v":{"am":"اُكْوِ","ms":"كُيٌّ"}},
+{"n":[20],"m":"أَكَلَ","mu":"يَأْكُلُ","am":"كُلْ","ms":"أَكْلٌ","me":["еди; таомланди"],"v":{"mu":"يَأْكِلُ","am":"كَلْ"}},
+{"n":[21],"m":"أَجَابَ","mu":"يُجِيبُ","am":"أَجِبْ","ms":"إِجَابَةٌ","me":["عَنْ.. — ..га жавоб берди"],"v":{"mu":"يَجِيبُ","am":"اِجِبْ","ms":"أَجَابَةٌ"}},
+{"n":[22,72,99,194,228],"m":"طَلَبَ","mu":"يَطْلُبُ","am":"اُطْلُبْ","ms":"طَلَبٌ","me":["истади","сўради","2. талаб қилди","3. (илм) ўрганди"],"v":{"mu":"يَطْلِبُ","am":"اِطْلُبْ","ms":"طُلَبٌ"}},
+{"n":[23],"m":"فَضَّلَ","mu":"يُفَضِّلُ","am":"فَضِّلْ","ms":"تَفْضِيلٌ","me":["маъқул кўрди; афзал билди"],"v":{"mu":"يَفَضِّلُ","am":"فُضِّلْ","ms":"تُفْضِيلٌ"}},
+{"n":[24],"m":"شَرِبَ","mu":"يَشْرَبُ","am":"اِشْرَبْ","ms":"شُرْبٌ","me":["ичди"],"v":{"mu":"يَشْرِبُ","am":"اُشْرَبْ"}},
+{"n":[25],"m":"دَارَ","mu":"يَدُورُ","am":"دُرْ","ms":"دَوْرٌ","me":["1. юз берди, содир бўлди"],"v":{"am":"دَرْ"}},
+{"n":[26],"m":"سَمِعَ","mu":"يَسْمَعُ","am":"اِسْمَعْ","ms":"سَمَاعٌ","me":["эшитди"],"v":{"mu":"يَسْمِعُ","am":"اُسْمَعْ","ms":"سُمَاعٌ"}},
+{"n":[27],"m":"اِسْتَطَاعَ","mu":"يَسْتَطِيعُ","am":"اِسْتَطِعْ","ms":"اِسْتِطَاعَةٌ","me":["қурби (кучи) етди"],"v":{"mu":"يَسْتِطِيعُ","am":"اُسْتَطِعْ","ms":"اِسْتَطَاعَةٌ"}},
+{"n":[28,40,150],"m":"عَمِلَ","mu":"يَعْمَلُ","am":"اِعْمَلْ","ms":"عَمَلٌ","me":["1. ишлади","2. қилди, иш қилди","қилди, барпо қилди"],"v":{"mu":"يَعْمِلُ","am":"اُعْمَلْ","ms":"عُمَلٌ"}},
+{"n":[29],"m":"وَضَعَ","mu":"يَضَعُ","am":"ضَعْ","ms":"وَضْعٌ","me":["қўйди"],"v":{"mu":"يَضِعُ","am":"ضُعْ","ms":"وُضْعٌ"}},
+{"n":[30],"m":"جَزَى","mu":"يَجْزِي","am":"اِجْزِ","ms":"جَزَاءٌ","me":["мукофотлади"],"v":{"am":"اُجْزِ","ms":"جُزَاءٌ"}},
+{"n":[31,58],"m":"سَافَرَ","mu":"يُسَافِرُ","am":"سَافِرْ","ms":"مُسَافَرَةٌ، سَفَرٌ","me":["(шаҳардан ташқарига ё бошқа шаҳарга) кетди","1. сафар қилди 2. (бирор шаҳарга) кетди"],"v":{"mu":"يَسَافِرُ","am":"سَافَرْ","ms":"مِسَافَرَةٌ، سَفَرٌ"}},
+{"n":[32,219],"m":"رَكِبَ","mu":"يَرْكَبُ","am":"اِرْكَبْ","ms":"رُكُوبٌ","me":["минди, (мошинага) ўтирди","(عَلَى ...) — 1. ...га минди, ..га миниб юрди"],"v":{"mu":"يَرْكِبُ","am":"اُرْكَبْ","ms":"رِكُوبٌ"}},
+{"n":[33],"m":"اِنْتَظَرَ","mu":"يَنْتَظِرُ","am":"اِنْتَظِرْ","ms":"اِنْتِظَارٌ","me":["1. кутди, кутиб турди"],"v":{"mu":"يَنْتَظُرُ","am":"اُنْتَظِرْ","ms":"اِنْتَظَارٌ"}},
+{"n":[34],"m":"كَتَبَ","mu":"يَكْتُبُ","am":"اُكْتُبْ","ms":"كِتَابَةٌ","me":["1. ёзди"],"v":{"mu":"يَكْتِبُ","am":"اِكْتُبْ","ms":"كَتَابَةٌ"}},
+{"n":[35,38,140],"m":"دَرَسَ","mu":"يَدْرُسُ","am":"اُدْرُسْ","ms":"دِرَاسَةٌ","me":["1. ўрганди","2. таълим олди, ўқиди","дарс қилди; ўрганди"],"v":{"mu":"يَدْرَسُ","am":"اِدْرُسْ","ms":"دَرَاسَةٌ"}},
+{"n":[36,165],"m":"بَدَأَ","mu":"يَبْدَأُ","am":"اِبْدَأْ","ms":"بَدْءٌ، بَدَاءَةٌ","me":["бошлади; бошланди"],"v":{"mu":"يَبْدِأُ","am":"اُبْدَأْ"}},
+{"n":[37,85],"m":"اِنْتَهَى","mu":"يَنْتَهِي","am":"اِنْتَهِ","ms":"اِنْتِهَاءٌ","me":["тугади"],"v":{"mu":"يَنْتِهِي","am":"اُنْتَهِ","ms":"اِنْتَهَاءٌ"}},
+{"n":[39],"m":"كَانَ","mu":"يَكُونُ","am":"كُنْ","ms":"كَوْنٌ","me":["1. бўлди"],"v":{"am":"كَنْ"}},
+{"n":[41,170],"m":"أَحَبَّ","mu":"يُحِبُّ","am":"أَحْبِبْ، أَحِبَّ","ms":"إِحْبَابٌ، حُبٌّ","me":["севди, яхши кўрди","истади"],"v":{"am":"اِحْبِبْ، أَحِبَّ"}},
+{"n":[42,225],"m":"دَرَّسَ","mu":"يُدَرِّسُ","am":"دَرِّسْ","ms":"تَدْرِيسٌ","me":["дарс берди","1. ..га ..дан дарс берди 2. ..га ..ни ўргатди"],"v":{"mu":"يَدَرِّسُ","am":"دُرِّسْ","ms":"تُدْرِيسٌ"}},
+{"n":[43],"m":"سَمَحَ","mu":"يَسْمَحُ","am":"اِسْمَحْ","ms":"سَمْحٌ، سَمَاحٌ","me":["لِـ.. — ...га рухсат берди"],"v":{"mu":"يَسْمِحُ","am":"اُسْمَحْ"}},
+{"n":[44],"m":"أَمْطَرَ","mu":"يُمْطِرُ","am":"أَمْطِرْ","ms":"إِمْطَارٌ","me":["ёмғир ёғдирди"],"v":{"am":"اِمْطِرْ"}},
+{"n":[45,55,100],"m":"تَرَكَ","mu":"يَتْرُكُ","am":"اُتْرُكْ","ms":"تَرْكٌ","me":["қолдирди, қолдириб келди","2. тарк этди","2. тарк қилди"],"v":{"mu":"يَتْرِكُ","am":"اِتْرُكْ"}},
+{"n":[46],"m":"بَقِيَ","mu":"يَبْقَى","am":"اِبْقَ","ms":"بَقَاءٌ","me":["қолди"],"v":{"am":"اُبْقَ","ms":"بُقَاءٌ"}},
+{"n":[47,180],"m":"تَكَلَّمَ","mu":"يَتَكَلَّمُ","am":"تَكَلَّمْ","ms":"تَكَلُّمٌ","me":["гапирди","مَعَ.. — ...билан гаплашди"],"v":{"mu":"يَتَكَلِّمُ","am":"تُكَلَّمْ","ms":"تُكَلُّمٌ"}},
+{"n":[48],"m":"قَضَى","mu":"يَقْضِي","am":"اِقْضِ","ms":"قَضَاءٌ","me":["(вақтни) ўтказди"],"v":{"am":"اُقْضِ","ms":"قُضَاءٌ"}},
+{"n":[49],"m":"أَحْضَرَ","mu":"يُحْضِرُ","am":"أَحْضِرْ","ms":"إِحْضَارٌ","me":["келтирди, олиб келди"],"v":{"am":"اِحْضِرْ","ms":"أَحْضَارٌ"}},
+{"n":[50],"m":"حَضَرَ","mu":"يَحْضُرُ","am":"اُحْضُرْ","ms":"حُضُورٌ","me":["келди"],"v":{"am":"اِحْضُرْ","ms":"حِضُورٌ"}},
+{"n":[51],"m":"اِنْتَقَلَ","mu":"يَنْتَقِلُ","am":"اِنْتَقِلْ","ms":"اِنْتِقَالٌ","me":["кўчиб ўтди"],"v":{"mu":"يَنْتَقُلُ","am":"اُنْتَقِلْ","ms":"اِنْتَقَالٌ"}},
+{"n":[52],"m":"اِسْتَغْرَقَ","mu":"يَسْتَغْرِقُ","am":"اِسْتَغْرِقْ","ms":"اِسْتِغْرَاقٌ","me":["вақт олди"],"v":{"mu":"يَسْتَغْرُقُ","am":"اُسْتَغْرِقْ","ms":"اِسْتَغْرَاقٌ"}},
+{"n":[53],"m":"تَزَوَّجَ","mu":"يَتَزَوَّجُ","am":"تَزَوَّجْ","ms":"تَزَوُّجٌ","me":["بِـ.. — ..га уйланди, турмушга чиқди"],"v":{"mu":"يَتَزَوِّجُ","am":"تُزَوَّجْ","ms":"تُزَوُّجٌ"}},
+{"n":[54,107],"m":"زَارَ","mu":"يَزُورُ","am":"زُرْ","ms":"زِيَارَةٌ","me":["ташриф буюрди, бориб турди","2. зиёрат қилди, савоб умидида борди"],"v":{"am":"زَرْ","ms":"زَيَارَةٌ"}},
+{"n":[56],"m":"لَيْسَ","mu":"","am":"","ms":"","me":["у(мз) эмас (ноқис феъл)"],"v":{}},
+{"n":[59],"m":"رَاسَلَ","mu":"يُرَاسِلُ","am":"رَاسِلْ","ms":"مُرَاسَلَةٌ","me":["хат ёзишди"],"v":{"mu":"يَرَاسِلُ","am":"رَاسَلْ","ms":"مِرَاسَلَةٌ"}},
+{"n":[60,86],"m":"جَمَعَ","mu":"يَجْمَعُ","am":"اِجْمَعْ","ms":"جَمْعٌ","me":["жамлади, тўплади"],"v":{"mu":"يَجْمِعُ","am":"اُجْمَعْ"}},
+{"n":[61],"m":"اِخْتَارَ","mu":"يَخْتَارُ","am":"اِخْتَرْ","ms":"اِخْتِيَارٌ","me":["танлади, ихтиёр қилди"],"v":{"am":"اُخْتَرْ","ms":"اِخْتَيَارٌ"}},
+{"n":[62],"m":"طَبَخَ","mu":"يَطْبُخُ","am":"اُطْبُخْ","ms":"طَبْخٌ","me":["1. пиширди 2. овқат пиширди"],"v":{"mu":"يَطْبِخُ","am":"اِطْبُخْ","ms":"طُبْخٌ"}},
+{"n":[63],"m":"خَاطَ","mu":"يَخِيطُ","am":"خِطْ","ms":"خِيَاطَةٌ","me":["тикди"],"v":{"am":"خَطْ","ms":"خَيَاطَةٌ"}},
+{"n":[64],"m":"حَدَثَ","mu":"يَحْدُثُ","am":"اُحْدُثْ","ms":"حُدُوثٌ","me":["содир бўлди"],"v":{"mu":"يَحْدِثُ","am":"اِحْدُثْ","ms":"حِدُوثٌ"}},
+{"n":[65],"m":"خَرَجَ","mu":"يَخْرُجُ","am":"اُخْرُجْ","ms":"خُرُوجٌ","me":["чиқди"],"v":{"mu":"يَخْرِجُ","am":"اِخْرُجْ","ms":"خِرُوجٌ"}},
+{"n":[66],"m":"دَخَلَ","mu":"يَدْخُلُ","am":"اُدْخُلْ","ms":"دُخُولٌ","me":["кирди"],"v":{"mu":"يَدْخِلُ","am":"اِدْخُلْ","ms":"دِخُولٌ"}},
+{"n":[67],"m":"غَادَرَ","mu":"يُغَادِرُ","am":"غَادِرْ","ms":"مُغَادَرَةٌ","me":["1. жўнаб кетди, тарк этди"],"v":{"mu":"يَغَادِرُ","am":"غَادَرْ","ms":"مِغَادَرَةٌ"}},
+{"n":[68],"m":"قَدِمَ","mu":"يَقْدَمُ","am":"اِقْدَمْ","ms":"قُدُومٌ","me":["келди"],"v":{"mu":"يَقْدِمُ","am":"اُقْدَمْ","ms":"قِدُومٌ"}},
+{"n":[69,143],"m":"أَقَامَ","mu":"يُقِيمُ","am":"أَقِمْ","ms":"إِقَامَةٌ","me":["истиқомат қилди, турди","ўрнатди"],"v":{"mu":"يَقِيمُ","am":"اِقِمْ","ms":"أَقَامَةٌ"}},
+{"n":[70],"m":"فَقَدَ","mu":"يَفْقِدُ","am":"اِفْقِدْ","ms":"فَقْدٌ","me":["йўқотди, йўқотиб қўйди"],"v":{"mu":"يَفْقُدُ","am":"اُفْقِدْ","ms":"فُقْدٌ"}},
+{"n":[71],"m":"فَتَحَ","mu":"يَفْتَحُ","am":"اِفْتَحْ","ms":"فَتْحٌ","me":["очди"],"v":{"mu":"يَفْتِحُ","am":"اُفْتَحْ","ms":"فُتْحٌ"}},
+{"n":[73],"m":"اِعْتَمَرَ","mu":"يَعْتَمِرُ","am":"اِعْتَمِرْ","ms":"اِعْتِمَارٌ، عُمْرَةٌ","me":["умра қилди"],"v":{"mu":"يَعْتَمُرُ","am":"اُعْتَمِرْ","ms":"اِعْتَمَارٌ، عُمْرَةٌ"}},
+{"n":[74],"m":"صَامَ","mu":"يَصُومُ","am":"صُمْ","ms":"صَوْمٌ، صِيَامٌ","me":["рўза тутди"],"v":{"am":"صَمْ"}},
+{"n":[75],"m":"طَافَ","mu":"يَطُوفُ","am":"طُفْ","ms":"طَوَافٌ","me":["тавоф қилди, атрофини айланди"],"v":{"am":"طَفْ"}},
+{"n":[76],"m":"شَعَرَ","mu":"يَشْعُرُ","am":"اُشْعُرْ","ms":"شُعُورٌ","me":["بِـ.. — ..ни сезди, ҳис қилди"],"v":{"mu":"يَشْعِرُ","am":"اِشْعُرْ","ms":"شِعُورٌ"}},
+{"n":[77,120,155],"m":"وَصَلَ","mu":"يَصِلُ","am":"صِلْ","ms":"وُصُولٌ","me":["етиб борди","етди","مِنْ... — ..дан келди, етиб келди"],"v":{"mu":"يَصُلُ","am":"صَلْ","ms":"وِصُولٌ"}},
+{"n":[78],"m":"خَلَعَ","mu":"يَخْلَعُ","am":"اِخْلَعْ","ms":"خُلُوعٌ","me":["ечди"],"v":{"mu":"يَخْلِعُ","am":"اُخْلَعْ","ms":"خِلُوعٌ"}},
+{"n":[79],"m":"لَبِسَ","mu":"يَلْبَسُ","am":"اِلْبَسْ","ms":"لُبْسٌ","me":["кийди"],"v":{"mu":"يَلْبُسُ","am":"اُلْبَسْ"}},
+{"n":[80],"m":"لَبَّى","mu":"يُلَبِّي","am":"لَبِّ","ms":"تَلْبِيَةٌ","me":["Талбия (лаббайка Аллоҳумма лаббайк)ни айтди"],"v":{"mu":"يَلَبِّي","am":"لُبِّ","ms":"تُلْبِيَةٌ"}},
+{"n":[81],"m":"سَعَى","mu":"يَسْعَى","am":"اِسْعَ","ms":"سَعْيٌ","me":["(Сафо билан Марва ўртасида) саъй қилди (ўзига хос тарзда югурди)"],"v":{"am":"اُسْعَ","ms":"سُعْيٌ"}},
+{"n":[82],"m":"حَلَقَ","mu":"يَحْلِقُ","am":"اِحْلِقْ","ms":"حَلْقٌ","me":["(тукни) қирди"],"v":{"mu":"يَحْلُقُ","am":"اُحْلِقْ","ms":"حُلْقٌ"}},
+{"n":[83],"m":"وَرَدَ","mu":"يَرِدُ","am":"رِدْ","ms":"وُرُودٌ","me":["келди"],"v":{"am":"رَدْ","ms":"وِرُودٌ"}},
+{"n":[84],"m":"رَتَّبَ","mu":"يُرَتِّبُ","am":"رَتِّبْ","ms":"تَرْتِيبٌ","me":["тартиблади, тартибга солди"],"v":{"mu":"يَرَتِّبُ","am":"رُتِّبْ","ms":"تُرْتِيبٌ"}},
+{"n":[87],"m":"قَصَرَ","mu":"يَقْصِرُ","am":"اِقْصِرْ","ms":"قَصْرٌ","me":["қисқартирди"],"v":{"am":"اُقْصِرْ"}},
+{"n":[88],"m":"رَمَى","mu":"يَرْمِي","am":"اِرْمِ","ms":"رَمْيٌ","me":["отди"],"v":{"am":"اُرْمِ","ms":"رُمْيٌ"}},
+{"n":[89],"m":"ذَبَحَ","mu":"يَذْبَحُ","am":"اِذْبَحْ","ms":"ذَبْحٌ","me":["сўйди"],"v":{"mu":"يَذْبِحُ","am":"اُذْبَحْ","ms":"ذُبْحٌ"}},
+{"n":[90],"m":"تَغَيَّبَ","mu":"يَتَغَيَّبُ","am":"تَغَيَّبْ","ms":"تَغَيُّبٌ","me":["келмади"],"v":{"mu":"يَتَغَيِّبُ","am":"تُغَيَّبْ","ms":"تُغَيُّبٌ"}},
+{"n":[91],"m":"أَصَابَ","mu":"يُصِيبُ","am":"أَصِبْ","ms":"إِصَابَةٌ","me":["1. етди 2. дучор бўлди"],"v":{"mu":"يَصِيبُ","am":"اِصِبْ","ms":"أَصَابَةٌ"}},
+{"n":[92],"m":"اِرْتَفَعَ","mu":"يَرْتَفِعُ","am":"اِرْتَفِعْ","ms":"اِرْتِفَاعٌ","me":["кўтарилди"],"v":{"mu":"يَرْتَفُعُ","am":"اُرْتَفِعْ","ms":"اِرْتَفَاعٌ"}},
+{"n":[93,175],"m":"قَابَلَ","mu":"يُقَابِلُ","am":"قَابِلْ","ms":"مُقَابَلَةٌ","me":["...га учради, ... билан учрашди","...га дуч келди"],"v":{"mu":"يَقَابِلُ","am":"قَابَلْ","ms":"مِقَابَلَةٌ"}},
+{"n":[94],"m":"تَنَاوَلَ","mu":"يَتَنَاوَلُ","am":"تَنَاوَلْ","ms":"تَنَاوُلٌ","me":["тановул қилди (еди, ичди)"],"v":{"mu":"يَتَنَاوِلُ","am":"تُنَاوَلْ","ms":"تُنَاوُلٌ"}},
+{"n":[95],"m":"نَصَحَ","mu":"يَنْصَحُ","am":"اِنْصَحْ","ms":"نَصْحٌ","me":["بِـ.. — ...га ...ни маслаҳат берди"],"v":{"mu":"يَنْصِحُ","am":"اُنْصَحْ"}},
+{"n":[96],"m":"أَعْطَى","mu":"يُعْطِي","am":"أَعْطِ","ms":"إِعْطَاءٌ","me":["...га ...ни берди"],"v":{"mu":"يَعْطِي","am":"اِعْطِ","ms":"أَعْطَاءٌ"}},
+{"n":[97],"m":"فَحَصَ","mu":"يَفْحَصُ","am":"اِفْحَصْ","ms":"فَحْصٌ","me":["текширди"],"v":{"mu":"يَفْحِصُ","am":"اُفْحَصْ","ms":"فُحْصٌ"}},
+{"n":[98],"m":"قَاسَ","mu":"يَقِيسُ","am":"قِسْ","ms":"قِيَاسٌ","me":["ўлчади"],"v":{"am":"قَسْ","ms":"قَيَاسٌ"}},
+{"n":[101],"m":"مَارَسَ","mu":"يُمَارِسُ","am":"مَارِسْ","ms":"مُمَارَسَةٌ","me":["шуғулланди"],"v":{"mu":"يَمَارِسُ","am":"مَارَسْ","ms":"مِمَارَسَةٌ"}},
+{"n":[102],"m":"شَفَى","mu":"يَشْفِي","am":"اِشْفِ","ms":"شِفَاءٌ","me":["даволади, тузатди, шифо берди"],"v":{"am":"اُشْفِ","ms":"شَفَاءٌ"}},
+{"n":[103],"m":"اِقْتَرَبَ","mu":"يَقْتَرِبُ","am":"اِقْتَرِبْ","ms":"اِقْتِرَابٌ","me":["яқинлашди"],"v":{"mu":"يَقْتَرُبُ","am":"اُقْتَرِبْ","ms":"اِقْتَرَابٌ"}},
+{"n":[104,149],"m":"رَأَى","mu":"يَرَى","am":"رَ، رَهْ","ms":"رُؤْيَةٌ","me":["кўрди","маъқул кўрди"],"v":{"am":"رُ، رَهْ","ms":"رِؤْيَةٌ"}},
+{"n":[105],"m":"رَجَعَ","mu":"يَرْجِعُ","am":"اِرْجِعْ","ms":"رُجُوعٌ","me":["қайтди"],"v":{"mu":"يَرْجُعُ","am":"اُرْجِعْ","ms":"رِجُوعٌ"}},
+{"n":[106],"m":"حَجَّ","mu":"يَحُجُّ","am":"حُجَّ","ms":"حَجٌّ","me":["ҳаж қилди"],"v":{"mu":"يَحِجُّ","ms":"حُجٌّ"}},
+{"n":[108],"m":"سَاعَدَ","mu":"يُسَاعِدُ","am":"سَاعِدْ","ms":"مُسَاعَدَةٌ","me":["ёрдам берди"],"v":{"mu":"يَسَاعِدُ","am":"سَاعَدْ","ms":"مِسَاعَدَةٌ"}},
+{"n":[109],"m":"عَالَجَ","mu":"يُعَالِجُ","am":"عَالِجْ","ms":"مُعَالَجَةٌ، عِلَاجٌ","me":["даволади, тузатди"],"v":{"mu":"يَعَالِجُ","am":"عَالَجْ","ms":"مِعَالَجَةٌ، عِلَاجٌ"}},
+{"n":[110],"m":"اِشْتَكَى","mu":"يَشْتَكِي","am":"اِشْتَكِ","ms":"اِشْتِكَاءٌ","me":["шикоят қилди"],"v":{"mu":"يَشْتِكِي","am":"اُشْتَكِ","ms":"اِشْتَكَاءٌ"}},
+{"n":[111],"m":"سَقَى","mu":"يَسْقِي","am":"اِسْقِ","ms":"سَقْيٌ","me":["ичирди"],"v":{"am":"اُسْقِ","ms":"سُقْيٌ"}},
+{"n":[112],"m":"أَمَرَ","mu":"يَأْمُرُ","am":"اُؤْمُرْ، مُرْ","ms":"أَمْرٌ","me":["буюрди, амр қилди"],"v":{"mu":"يَأْمِرُ","am":"اِؤْمُرْ، مُرْ","ms":"أُمْرٌ"}},
+{"n":[113,135],"m":"وَجَدَ","mu":"يَجِدُ","am":"جِدْ","ms":"وِجْدَانٌ","me":["топди","кўрди"],"v":{"am":"جَدْ","ms":"وَجْدَانٌ"}},
+{"n":[114],"m":"بَاعَ","mu":"يَبِيعُ","am":"بِعْ","ms":"بَيْعٌ","me":["сотди"],"v":{"am":"بَعْ","ms":"بُيْعٌ"}},
+{"n":[115],"m":"اِشْتَرَى","mu":"يَشْتَرِي","am":"اِشْتَرِ","ms":"اِشْتِرَاءٌ","me":["сотиб олди"],"v":{"mu":"يَشْتِرِي","am":"اُشْتَرِ","ms":"اِشْتَرَاءٌ"}},
+{"n":[116],"m":"فَكَّرَ","mu":"يُفَكِّرُ","am":"فَكِّرْ","ms":"تَفْكِيرٌ","me":["ўйлади, фикр юритди"],"v":{"mu":"يَفَكِّرُ","am":"فُكِّرْ","ms":"تُفْكِيرٌ"}},
+{"n":[117],"m":"تَشَابَهَ","mu":"يَتَشَابَهُ","am":"تَشَابَهْ","ms":"تَشَابُهٌ","me":["бир-бирига (ўзаро) ўхшади"],"v":{"mu":"يَتَشَابِهُ","am":"تُشَابَهْ","ms":"تُشَابُهٌ"}},
+{"n":[118,158],"m":"اِخْتَلَفَ","mu":"يَخْتَلِفُ","am":"اِخْتَلِفْ","ms":"اِخْتِلَافٌ","me":["бир-биридан фарқ қилди","ҳар хил (турлича) бўлди"],"v":{"mu":"يَخْتَلُفُ","am":"اُخْتَلِفْ","ms":"اِخْتَلَافٌ"}},
+{"n":[119],"m":"زَادَ","mu":"يَزِيدُ","am":"زِدْ","ms":"زِيَادَةٌ","me":["зиёда қилди; зиёда бўлди"],"v":{"am":"زَدْ","ms":"زَيَادَةٌ"}},
+{"n":[121],"m":"وَجَبَ","mu":"يَجِبُ","am":"جِبْ","ms":"وُجُوبٌ","me":["шарт (керак) бўлди"],"v":{"am":"جَبْ","ms":"وِجُوبٌ"}},
+{"n":[122],"m":"حَاوَلَ","mu":"يُحَاوِلُ","am":"حَاوِلْ","ms":"مُحَاوَلَةٌ","me":["тиришди, ҳаракат қилди, уринди"],"v":{"mu":"يَحَاوِلُ","am":"حَاوَلْ","ms":"مِحَاوَلَةٌ"}},
+{"n":[123],"m":"نَجَحَ","mu":"يَنْجَحُ","am":"اِنْجَحْ","ms":"نَجَاحٌ","me":["муваффақиятга эришди; (имтиҳондан) ўтди"],"v":{"mu":"يَنْجِحُ","am":"اُنْجَحْ","ms":"نُجَاحٌ"}},
+{"n":[124],"m":"أَخَذَ","mu":"يَأْخُذُ","am":"خُذْ","ms":"أَخْذٌ","me":["олди"],"v":{"mu":"يَأْخِذُ","am":"خَذْ","ms":"أُخْذٌ"}},
+{"n":[125],"m":"أَخَذَ ...","mu":"","am":"","ms":"","me":["...а бошлади (афъолуш шуруъ – бошлаш феъллари)"],"v":{}},
+{"n":[126],"m":"ظَلَّ ...","mu":"","am":"","ms":"","me":["...ча қолди, ...ликда давом этди"],"v":{}},
+{"n":[127],"m":"نَقَصَ","mu":"يَنْقُصُ","am":"اُنْقُصْ","ms":"نَقْصٌ، نُقْصَانٌ","me":["камайди"],"v":{"mu":"يَنْقِصُ","am":"اِنْقُصْ","ms":"نُقْصٌ، نُقْصَانٌ"}},
+{"n":[128],"m":"جَرَى","mu":"يَجْرِي","am":"اِجْرِ","ms":"جَرْيٌ","me":["югурди"],"v":{"am":"اُجْرِ","ms":"جُرْيٌ"}},
+{"n":[129],"m":"اِتَّبَعَ","mu":"يَتَّبِعُ","am":"اِتَّبِعْ","ms":"اِتِّبَاعٌ","me":["риоя қилди"],"v":{"mu":"يَتَّبُعُ","am":"اُتَّبِعْ","ms":"اِتَّبَاعٌ"}},
+{"n":[130],"m":"اِعْتَقَدَ","mu":"يَعْتَقِدُ","am":"اِعْتَقِدْ","ms":"اِعْتِقَادٌ","me":["1. амин бўлди, қаттиқ ишонди 2. ўйлади"],"v":{"mu":"يَعْتَقُدُ","am":"اُعْتَقِدْ","ms":"اِعْتَقَادٌ"}},
+{"n":[131],"m":"كَفَى","mu":"يَكْفِي","am":"اِكْفِ","ms":"كِفَايَةٌ","me":["кифоя қилди, етарли бўлди"],"v":{"am":"اُكْفِ","ms":"كَفَايَةٌ"}},
+{"n":[132],"m":"أَحْسَنَ","mu":"يُحْسِنُ","am":"أَحْسِنْ","ms":"إِحْسَانٌ","me":["яхшилик қилди"],"v":{"mu":"يَحْسِنُ","am":"اِحْسِنْ","ms":"أَحْسَانٌ"}},
+{"n":[133],"m":"أُغْمِيَ عَلَيْهِ","mu":"","am":"","ms":"","me":["у(мз) ҳушидан кетиб қолди"],"v":{}},
+{"n":[134],"m":"أَفَاقَ","mu":"يُفِيقُ","am":"أَفِقْ","ms":"إِفَاقَةٌ","me":["ҳушига келди"],"v":{"mu":"يَفِيقُ","am":"اِفِقْ","ms":"أَفَاقَةٌ"}},
+{"n":[136],"m":"غَيَّرَ","mu":"يُغَيِّرُ","am":"غَيِّرْ","ms":"تَغْيِيرٌ","me":["ўзгартирди"],"v":{"mu":"يَغَيِّرُ","am":"غُيِّرْ","ms":"تُغْيِيرٌ"}},
+{"n":[137],"m":"قَصَدَ","mu":"يَقْصِدُ","am":"اِقْصِدْ","ms":"قَصْدٌ","me":["1. назарда тутди"],"v":{"mu":"يَقْصُدُ","am":"اُقْصِدْ","ms":"قُصْدٌ"}},
+{"n":[138],"m":"صَدَقَ","mu":"يَصْدِقُ","am":"اِصْدِقْ","ms":"صِدْقٌ","me":["тўғри айтди, тўғри гапирди"],"v":{"mu":"يَصْدَقُ","am":"اُصْدِقْ"}},
+{"n":[139],"m":"رَوَّحَ","mu":"يُرَوِّحُ","am":"رَوِّحْ","ms":"تَرْوِيحٌ","me":["عَنْ.. — ..га дам берди"],"v":{"mu":"يَرَوِّحُ","am":"رُوِّحْ","ms":"تُرْوِيحٌ"}},
+{"n":[141],"m":"اِحْتَاجَ","mu":"يَحْتَاجُ","am":"اِحْتَجْ","ms":"اِحْتِيَاجٌ","me":["إِلَى.. — ...га муҳтож бўлди, эҳтиёж сезди"],"v":{"am":"اُحْتَجْ","ms":"اِحْتَيَاجٌ"}},
+{"n":[142],"m":"قَتَلَ","mu":"يَقْتُلُ","am":"اُقْتُلْ","ms":"قَتْلٌ","me":["1. ўлдирди 2. зое қилди, совурди"],"v":{"mu":"يَقْتِلُ","am":"اِقْتُلْ","ms":"قُتْلٌ"}},
+{"n":[144],"m":"صَادَ","mu":"يَصِيدُ","am":"صِدْ","ms":"صَيْدٌ","me":["тутди, (балиқ) овлади"],"v":{"am":"صَدْ","ms":"صُيْدٌ"}},
+{"n":[145],"m":"رَضِيَ","mu":"يَرْضَى","am":"اِرْضَ","ms":"رِضًا، رِضْوَانٌ","me":["عَنْ.. — ...дан рози бўлди"],"v":{"am":"اُرْضَ","ms":"رَضًا، رِضْوَانٌ"}},
+{"n":[146],"m":"عَلَّمَ","mu":"يُعَلِّمُ","am":"عَلِّمْ","ms":"تَعْلِيمٌ","me":["ўргатди"],"v":{"mu":"يَعَلِّمُ","am":"عُلِّمْ","ms":"تُعْلِيمٌ"}},
+{"n":[147],"m":"نَادَى","mu":"يُنَادِي","am":"نَادِ","ms":"مُنَادَاةٌ، نِدَاءٌ","me":["чақирди"],"v":{"mu":"يَنَادِي","ms":"مِنَادَاةٌ، نِدَاءٌ"}},
+{"n":[148],"m":"نَاقَشَ","mu":"يُنَاقِشُ","am":"نَاقِشْ","ms":"مُنَاقَشَةٌ","me":["муҳокама қилди"],"v":{"mu":"يَنَاقِشُ","am":"نَاقَشْ","ms":"مِنَاقَشَةٌ"}},
+{"n":[151],"m":"لَعِبَ","mu":"يَلْعَبُ","am":"اِلْعَبْ","ms":"لَعِبٌ","me":["ўйнади"],"v":{"mu":"يَلْعِبُ","am":"اُلْعَبْ","ms":"لُعِبٌ"}},
+{"n":[152],"m":"سَبَحَ","mu":"يَسْبَحُ","am":"اِسْبَحْ","ms":"سِبَاحَةٌ","me":["(сувда) сузди"],"v":{"mu":"يَسْبِحُ","am":"اُسْبَحْ","ms":"سَبَاحَةٌ"}},
+{"n":[153,166],"m":"عَرَفَ","mu":"يَعْرِفُ","am":"اِعْرِفْ","ms":"عِرْفَانٌ، مَعْرِفَةٌ","me":["1. билди","2. таниди"],"v":{"am":"اُعْرِفْ","ms":"عَرْفَانٌ، مَعْرِفَةٌ"}},
+{"n":[154,177],"m":"عَادَ","mu":"يُعُودُ","am":"عُدْ","ms":"عَوْدٌ، عَوْدَةٌ","me":["қайтди","إِلَى.. — ...га бориб тақалди"],"v":{"am":"عَدْ"}},
+{"n":[156],"m":"خَيَّمَ","mu":"يُخَيِّمُ","am":"خَيِّمْ","ms":"تَخْيِيمٌ","me":["чодир тикди, лагерь ташкил қилди"],"v":{"mu":"يَخَيِّمُ","am":"خُيِّمْ","ms":"تُخْيِيمٌ"}},
+{"n":[157],"m":"أَعَدَّ","mu":"يُعِدُّ","am":"أَعِدَّ","ms":"إِعْدَادٌ","me":["тайёрлади"],"v":{"mu":"يَعِدُّ","am":"اِعِدَّ"}},
+{"n":[159],"m":"نَصَبَ","mu":"يَنْصِبُ","am":"اِنْصِبْ","ms":"نَصْبٌ","me":["ўрнатди"],"v":{"mu":"يَنْصُبُ","am":"اُنْصِبْ"}},
+{"n":[160],"m":"حَمَلَ","mu":"يَحْمِلُ","am":"اِحْمِلْ","ms":"حَمْلٌ","me":["олиб борди"],"v":{"mu":"يَحْمُلُ","am":"اُحْمِلْ","ms":"حُمْلٌ"}},
+{"n":[161],"m":"اِصْطَادَ","mu":"يَصْطَادُ","am":"اِصْطَدْ","ms":"اِصْطِيَادٌ","me":["овлади, тутди"],"v":{"am":"اُصْطَدْ","ms":"اِصْطَيَادٌ"}},
+{"n":[162],"m":"صَوَّرَ","mu":"يُصَوِّرُ","am":"صَوِّرْ","ms":"تَصْوِيرٌ","me":["расм чизди; суратга олди"],"v":{"mu":"يَصَوِّرُ","am":"صُوِّرْ","ms":"تُصْوِيرٌ"}},
+{"n":[163],"m":"مَشَى","mu":"يَمْشِي","am":"اِمْشِ","ms":"مَشْيٌ","me":["юрди; яёв юрди"],"v":{"am":"اُمْشِ","ms":"مُشْيٌ"}},
+{"n":[164],"m":"اِتَّفَقَ","mu":"يَتَّفِقُ","am":"اِتَّفِقْ","ms":"اِتِّفَاقٌ","me":["келишди, келишиб олди"],"v":{"mu":"يَتَّفُقُ","am":"اُتَّفِقْ","ms":"اِتَّفَاقٌ"}},
+{"n":[167],"m":"حَقَّقَ","mu":"يُحَقِّقُ","am":"حَقِّقْ","ms":"تَحْقِيقٌ","me":["рўёбга чиқарди"],"v":{"mu":"يَحَقِّقُ","am":"حُقِّقْ","ms":"تُحْقِيقٌ"}},
+{"n":[168],"m":"تَرِبَ","mu":"يَتْرَبُ","am":"اِتْرَبْ","ms":"تَرَبٌ","me":["тупроққа қоришди"],"v":{"mu":"يَتْرِبُ","am":"اُتْرَبْ"}},
+{"n":[169],"m":"ظَفِرَ","mu":"يَظْفَرُ","am":"اِظْفَرْ","ms":"ظَفَرٌ","me":["بِـ.. — ..га эришди, ..ни қўлга киритди"],"v":{"mu":"يَظْفِرُ","am":"اُظْفَرْ"}},
+{"n":[171],"m":"حَلَّ","mu":"يَحِلُّ","am":"حُلَّ","ms":"حَلٌّ","me":["ечди, ҳал қилди"],"v":{"mu":"يَحَلُّ","ms":"حُلٌّ"}},
+{"n":[172,202],"m":"وَقَعَ","mu":"يَقَعُ","am":"قَعْ","ms":"وُقُوعٌ","me":["содир бўлди, келиб чиқди","жойлашди"],"v":{"mu":"يَقِعُ","am":"قُعْ","ms":"وِقُوعٌ"}},
+{"n":[173,189],"m":"ظَهَرَ","mu":"يَظْهَرُ","am":"اِظْهَرْ","ms":"ظُهُورٌ","me":["кўриниб қолди, намоён бўлди","3. пайдо бўлди, юзага келди"],"v":{"mu":"يَظْهِرُ","am":"اُظْهَرْ","ms":"ظِهُورٌ"}},
+{"n":[174],"m":"عَجَزَ","mu":"يَعْجِزُ","am":"اِعْجِزْ","ms":"عَجْزٌ","me":["ожиз бўлди, қодир бўлмади, ..а олмади"],"v":{"mu":"يَعْجُزُ","am":"اُعْجِزْ"}},
+{"n":[176],"m":"ثَارَ","mu":"يَثُورُ","am":"ثُرْ","ms":"ثَوْرٌ، ثَوَرَانٌ","me":["қизишиб кетди, лов этиб ёнди"],"v":{"am":"ثَرْ"}},
+{"n":[178],"m":"شَكَا","mu":"يَشْكُو","am":"اُشْكُ","ms":"شَكْوَى","me":["шикоят қилди"],"v":{"am":"اِشْكُ","ms":"شُكْوَى"}},
+{"n":[179],"m":"اِسْتَمَعَ","mu":"يَسْتَمِعُ","am":"اِسْتَمِعْ","ms":"اِسْتِمَاعٌ","me":["إِلَى، لِـ — ..га қулоқ солди, ..ни тинглади"],"v":{"mu":"يَسْتَمُعُ","am":"اُسْتَمِعْ","ms":"اِسْتَمَاعٌ"}},
+{"n":[181],"m":"عَاشَ","mu":"يَعِيشُ","am":"عِشْ","ms":"عَيْشٌ، مَعِيشَةٌ، عِيشَةٌ","me":["яшади, кун кечирди"],"v":{"am":"عَشْ","ms":"عُيْشٌ، مَعِيشَةٌ، عِيشَةٌ"}},
+{"n":[182],"m":"دَرَى","mu":"يَدْرِي","am":"اِدْرِ","ms":"دِرَايَةٌ","me":["билди"],"v":{"am":"اُدْرِ","ms":"دَرَايَةٌ"}},
+{"n":[183],"m":"تَغَيَّرَ","mu":"يَتَغَيَّرُ","am":"تَغَيَّرْ","ms":"تَغَيُّرٌ","me":["ўзгарди"],"v":{"mu":"يَتَغَيِّرُ","am":"تُغَيَّرْ","ms":"تُغَيُّرٌ"}},
+{"n":[184],"m":"اِهْتَمَّ","mu":"يَهْتَمُّ","am":"اِهْتَمِّ","ms":"اِهْتِمَامٌ","me":["بِـ.. — ...га эътибор (аҳамият) берди"],"v":{"mu":"يَهْتِمُّ","am":"اُهْتَمِّ","ms":"اِهْتَمَامٌ"}},
+{"n":[185],"m":"سَهِرَ","mu":"يَسْهَرُ","am":"اِسْهَرْ","ms":"سَهَرٌ","me":["1. кечани (тунни) ўтказди"],"v":{"mu":"يَسْهِرُ","am":"اُسْهَرْ","ms":"سُهَرٌ"}},
+{"n":[186,231],"m":"تَكَوَّنَ","mu":"يَتَكَوَّنُ","am":"تَكَوَّنْ","ms":"تَكَوُّنٌ","me":["таркиб топди, тузилди"],"v":{"mu":"يَتَكَوِّنُ","am":"تُكَوَّنْ","ms":"تُكَوُّنٌ"}},
+{"n":[187],"m":"قَامَ","mu":"يَقُومُ","am":"قُمْ","ms":"قِيَامٌ","me":["بِـ... — ..ни бажарди (қилди, амалга оширди), ..ни адо этди"],"v":{"am":"قَمْ","ms":"قَيَامٌ"}},
+{"n":[188],"m":"اِخْتَفَى","mu":"يَخْتَفِي","am":"اِخْتَفِ","ms":"اِخْتِفَاءٌ","me":["1. йўқ бўлиб кетди"],"v":{"mu":"يَخْتِفِي","am":"اُخْتَفِ","ms":"اِخْتَفَاءٌ"}},
+{"n":[190],"m":"ضَمَّ","mu":"يَضُمُّ","am":"ضُمَّ","ms":"ضَمٌّ","me":["1. (ўзида) жамлади, мужассам этди"],"v":{"mu":"يَضِمُّ","ms":"ضُمٌّ"}},
+{"n":[191],"m":"جَلَسَ","mu":"يَجْلِسُ","am":"اِجْلِسْ","ms":"جُلُوسٌ","me":["ўтирди"],"v":{"mu":"يَجْلُسُ","am":"اُجْلِسْ","ms":"جِلُوسٌ"}},
+{"n":[192],"m":"رَحَلَ","mu":"يَرْحَلُ","am":"اِرْحَلْ","ms":"رَحِيلٌ","me":["кетди, йўлга отланди"],"v":{"mu":"يَرْحِلُ","am":"اُرْحَلْ","ms":"رُحِيلٌ"}},
+{"n":[193],"m":"مَاتَ","mu":"يَمُوتُ","am":"مُتْ","ms":"مَوْتٌ","me":["ўлди, нобуд бўлди"],"v":{"am":"مَتْ"}},
+{"n":[195],"m":"حَيِيَ","mu":"يَحْيَا","am":"اِحْيَ","ms":"حَيَاةٌ، حَيَوَانٌ","me":["яшади, ҳаёт кечирди"],"v":{"am":"اُحْيَ","ms":"حُيَاةٌ، حَيَوَانٌ"}},
+{"n":[196],"m":"هَاجَرَ","mu":"يُهَاجِرُ","am":"هَاجِرْ","ms":"مُهَاجَرَةٌ، هِجْرَةٌ","me":["кўчиб ўтди, кўчиб кетди"],"v":{"mu":"يَهَاجِرُ","am":"هَاجَرْ","ms":"مِهَاجَرَةٌ، هِجْرَةٌ"}},
+{"n":[197],"m":"وَاجَهَ","mu":"يُوَاجِهُ","am":"وَاجِهْ","ms":"مُوَاجَهَةٌ","me":["дуч келди"],"v":{"mu":"يَوَاجِهُ","am":"وَاجَهْ","ms":"مُوَاجُهَةٌ"}},
+{"n":[198],"m":"اِزْدَادَ","mu":"يَزْدَادُ","am":"اِزْدَدْ","ms":"اِزْدِيَادٌ","me":["зиёда бўлди, кўпайди"],"v":{"am":"اُزْدَدْ","ms":"اِزْدَيَادٌ"}},
+{"n":[199],"m":"أَدْرَكَ","mu":"يُدْرِكُ","am":"أَدْرِكْ","ms":"إِدْرَاكٌ","me":["1. етди 2. англаб етди"],"v":{"mu":"يَدْرِكُ","am":"اِدْرِكْ"}},
+{"n":[200],"m":"بَنَى","mu":"يَبْنِي","am":"اِبْنِ","ms":"بِنَاءٌ، بُنْيَانٌ","me":["қурди, бино қилди"],"v":{"am":"اُبْنِ","ms":"بَنَاءٌ، بُنْيَانٌ"}},
+{"n":[201],"m":"بَلَغَ","mu":"يَبْلُغُ","am":"اُبْلُغْ","ms":"بُلُوغٌ","me":["етди"],"v":{"mu":"يَبْلِغُ","am":"اِبْلُغْ","ms":"بِلُوغٌ"}},
+{"n":[203],"m":"اِتَّجَهَ","mu":"يَتَّجِهُ","am":"اِتَّجِهْ","ms":"اِتِّجَاهٌ","me":["йўл олди"],"v":{"mu":"يَتَّجُهُ","am":"اُتَّجِهْ","ms":"اِتَّجَاهٌ"}},
+{"n":[204],"m":"اِنْعَطَفَ","mu":"يَنْعَطِفُ","am":"اِنْعَطِفْ","ms":"اِنْعِطَافٌ","me":["бурилди"],"v":{"mu":"يَنْعَطُفُ","am":"اُنْعَطِفْ","ms":"اِنْعَطَافٌ"}},
+{"n":[205],"m":"اِسْتَمَرَّ","mu":"يَسْتَمِرُّ","am":"اِسْتَمِرَّ","ms":"اِسْتِمْرَارٌ","me":["давом этди"],"v":{"mu":"يَسْتَمُرُّ","am":"اُسْتَمِرَّ","ms":"اِسْتَمْرَارٌ"}},
+{"n":[206],"m":"اِشْتَهَرَ","mu":"يَشْتَهِرُ","am":"اِشْتَهِرْ","ms":"اِشْتِهَارٌ","me":["...ни машҳур қилди"],"v":{"mu":"يَشْتَهُرُ","am":"اُشْتَهِرْ","ms":"اِشْتَهَارٌ"}},
+{"n":[207],"m":"كَثُرَ","mu":"يَكْثُرُ","am":"اُكْثُرْ","ms":"كَثْرَةٌ","me":["кўп бўлди; кўпайди"],"v":{"mu":"يَكْثِرُ","am":"اِكْثُرْ"}},
+{"n":[208],"m":"أَنْشَأَ","mu":"يُنْشِئُ","am":"أَنْشِئْ","ms":"إِنْشَاءٌ","me":["қурди; ташкил қилди"],"v":{"mu":"يَنْشِئُ","am":"اِنْشِئْ","ms":"أَنْشَاءٌ"}},
+{"n":[209],"m":"قَدَّمَ","mu":"يُقَدِّمُ","am":"قَدِّمْ","ms":"تَقْدِيمٌ","me":["тақдим қилди, топширди"],"v":{"mu":"يَقَدِّمُ","am":"قُدِّمْ","ms":"تُقْدِيمٌ"}},
+{"n":[210],"m":"قَبِلَ","mu":"يَقْبَلُ","am":"اِقْبَلْ","ms":"قَبُولٌ","me":["қабул қилди"],"v":{"mu":"يَقْبِلُ","am":"اُقْبَلْ"}},
+{"n":[211],"m":"رَغِبَ","mu":"يَرْغَبُ","am":"اِرْغَبْ","ms":"رَغْبَةٌ","me":["فِي... — ..ни истади, ..га қизиқди"],"v":{"mu":"يَرْغِبُ","am":"اُرْغَبْ"}},
+{"n":[212],"m":"حَصَلَ","mu":"يَحْصُلُ","am":"اُحْصُلْ","ms":"حُصُولٌ","me":["عَلَى.. — ..ни қўлга киритди, ..га эришди, ...ни олди"],"v":{"mu":"يَحْصِلُ","am":"اِحْصُلْ","ms":"حِصُولٌ"}},
+{"n":[213],"m":"اِلْتَحَقَ","mu":"يَلْتَحِقُ","am":"اِلْتَحِقْ","ms":"اِلْتِحَاقٌ","me":["بِـ... — ..га кирди, қабул қилинди"],"v":{"mu":"يَلْتَحُقُ","am":"اُلْتَحِقْ","ms":"اِلْتَحَاقٌ"}},
+{"n":[214],"m":"وَافَقَ","mu":"يُوَافِقُ","am":"وَافِقْ","ms":"مُوَافَقَةٌ","me":["عَلَى... — ...га рози бўлди"],"v":{"mu":"يَوَافِقُ","am":"وَافَقْ","ms":"مُوَافُقَةٌ"}},
+{"n":[215],"m":"وَفَّقَ","mu":"يُوَفِّقُ","am":"وَفِّقْ","ms":"تَوْفِيقٌ","me":["... فِي ... — ..ни ..га муваффақ қилди, ...га ...ни насиб этди"],"v":{"mu":"يَوَفِّقُ","am":"وُفِّقْ","ms":"تَوْفَيقٌ"}},
+{"n":[216],"m":"تَعَلَّمَ","mu":"يَتَعَلَّمُ","am":"تَعَلَّمْ","ms":"تَعَلُّمٌ","me":["1. таълим олди"],"v":{"mu":"يَتَعَلِّمُ","am":"تُعَلَّمْ","ms":"تُعَلُّمٌ"}},
+{"n":[217],"m":"اِنْتَشَرَ","mu":"يَنْتَشِرُ","am":"اِنْتَشِرْ","ms":"اِنْتِشَارٌ","me":["1. ёйилди, кенг тарқалди"],"v":{"mu":"يَنْتَشُرُ","am":"اُنْتَشِرْ","ms":"اِنْتَشَارٌ"}},
+{"n":[218],"m":"شَاعَ","mu":"يَشِيعُ","am":"شِعْ","ms":"شُيُوعٌ","me":["1. кенг тарқалди, оммалашди, машҳур бўлди"],"v":{"am":"شَعْ","ms":"شِيُوعٌ"}},
+{"n":[220],"m":"سَارَ","mu":"يَسِيرُ","am":"سِرْ","ms":"سَيْرٌ","me":["юрди"],"v":{"am":"سَرْ","ms":"سُيْرٌ"}},
+{"n":[221],"m":"تَقَدَّمَ","mu":"يَتَقَدَّمُ","am":"تَقَدَّمْ","ms":"تَقَدُّمٌ","me":["2. пешқадам (илғор) бўлди"],"v":{"mu":"يَتَقَدِّمُ","am":"تُقَدَّمْ","ms":"تُقَدُّمٌ"}},
+{"n":[222],"m":"تَأَثَّرَ","mu":"يَتَأَثَّرُ","am":"تَأَثَّرْ","ms":"تَأَثُّرٌ","me":["بِـ.. — 1. ..дан таъсирланди, ..га ..нинг таъсири бўлди"],"v":{"mu":"يَتَأَثِّرُ","am":"تُأَثَّرْ","ms":"تُأَثُّرٌ"}},
+{"n":[223],"m":"اِتَّصَلَ","mu":"يَتَّصِلُ","am":"اِتَّصِلْ","ms":"اِتِّصَالٌ","me":["بِـ.. — 1. ... билан (..га) боғланди"],"v":{"mu":"يَتَّصُلُ","am":"اُتَّصِلْ","ms":"اِتَّصَالٌ"}},
+{"n":[224],"m":"تَرْجَمَ","mu":"يُتَرْجِمُ","am":"تَرْجِمْ","ms":"تَرْجَمَةٌ","me":["1. таржима қилди"],"v":{"mu":"يَتَرْجِمُ","am":"تُرْجِمْ","ms":"تُرْجَمَةٌ"}},
+{"n":[226],"m":"تَأَخَّرَ","mu":"يَتَأَخَّرُ","am":"تَأَخَّرْ","ms":"تَأَخُّرٌ","me":["2. ортда қолди"],"v":{"mu":"يَتَأَخِّرُ","am":"تُأَخَّرْ","ms":"تُأَخُّرٌ"}},
+{"n":[227],"m":"نَزَلَ","mu":"يَنْزِلُ","am":"اِنْزِلْ","ms":"نُزُولٌ","me":["1. тушди, нозил бўлди"],"v":{"mu":"يَنْزُلُ","am":"اُنْزِلْ","ms":"نِزُولٌ"}},
+{"n":[229],"m":"مَرَّ","mu":"يَمُرُّ","am":"مُرَّ","ms":"مُرُورٌ","me":["بِـ.. — 1. ..дан ўтди"],"v":{"mu":"يَمِرُّ","ms":"مِرُورٌ"}},
+{"n":[230],"m":"أَنْهَى","mu":"يُنْهِي","am":"أَنْهِ","ms":"إِنْهَاءٌ","me":["тугатди"],"v":{"mu":"يَنْهِي","am":"اِنْهِ"}},
+{"n":[232],"m":"تَرَاوَحَ","mu":"يَتَرَاوَحُ","am":"تَرَاوَحْ","ms":"تَرَاوُحٌ","me":["тебранди, ..дан ..гача бўлди"],"v":{"mu":"يَتَرَاوِحُ","am":"تُرَاوَحْ","ms":"تُرَاوُحٌ"}},
+{"n":[233],"m":"أَشْرَفَ","mu":"يُشْرِفُ","am":"أَشْرِفْ","ms":"إِشْرَافٌ","me":["عَلَى .. — 1. ..ни бошқарди"],"v":{"mu":"يَشْرِفُ","am":"اِشْرِفْ"}},
+{"n":[234],"m":"وَفَّرَ","mu":"يُوَفِّرُ","am":"وَفِّرْ","ms":"تَوْفِيرٌ","me":["1. таъминлади (..ни берди)"],"v":{"mu":"يَوَفِّرُ","am":"وُفِّرْ","ms":"تَوْفَيرٌ"}}
+];
+const SET_SIZE = 20;
+const TOTAL = ITEMS.length;
+const NSETS = Math.ceil(TOTAL / SET_SIZE);
+const SKEY = 'fl' + TOTAL + '_';          // bosh sahifa (index.html) ham shu kalitlarni o'qiydi
+const SYNC_KEY = SKEY + 'sync';           // Telegram bulutidagi nusxa
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(SKEY + k); return v == null ? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(SKEY + k, JSON.stringify(v)); }catch(e){} },
+  del(k){ try{ localStorage.removeItem(SKEY + k); }catch(e){} }
+};
+const $app = document.getElementById('app');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const meaning = it => it.me.join('  •  ');
+const setRange = s => [s * SET_SIZE, Math.min(TOTAL, (s + 1) * SET_SIZE)];
+const setIdx = s => { const [a, b] = setRange(s), r = []; for (let i = a; i < b; i++) r.push(i); return r; };
+const okI = i => Number.isInteger(i) && i >= 0 && i < TOTAL;
+const starN = b => b >= 90 ? 5 : b >= 75 ? 4 : b >= 60 ? 3 : b >= 40 ? 2 : 1;   // 100 ball → yulduz
+const stars = b => '<span class="star">' + '★'.repeat(starN(b)) + '<span class="st0">' + '★'.repeat(5 - starN(b)) + '</span></span>';
+const mmss = s => Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+let SCREEN = 'home';
+
+/* ---------- NOTO'G'RI VARIANTLAR ---------- */
+const STOP = new Set(['қилм','бўлм','берм','олмо','келм','кетм','бери','қили','қилд','бўлд','берд','олди','келд','кетд','этди','этмо']);
+function stems(s){ const r = new Set(); (s.toLowerCase().match(/[а-яёўқғҳ]+/g) || []).forEach(w => { if (w.length >= 4){ const st = w.slice(0, 4); if (!STOP.has(st)) r.add(st); } }); return r; }
+function atoms(s){ return new Set(s.toLowerCase().split(/\s*\d\.\s*|•|;|,|—/).map(x => x.replace(/[().…]/g, '').replace(/\s+/g, ' ').trim()).filter(x => x.length > 1)); }
+function overlap(a, b){ if (a === b) return true; const A = stems(a); for (const x of stems(b)) if (A.has(x)) return true;
+  const P = atoms(a); for (const x of atoms(b)) if (P.has(x)) return true; return false; }
+const baseM = m => m.replace(/\s*\.{2,}\s*$/, '');   // أَخَذَ va أَخَذَ ... bir-biriga variant bo'lmasin
+function otherMeanings(idx, k){
+  const mine = meaning(ITEMS[idx]); const out = [];
+  for (const j of shuffle(ITEMS.map((_, i) => i))){
+    if (j === idx || baseM(ITEMS[j].m) === baseM(ITEMS[idx].m)) continue; const m = meaning(ITEMS[j]);
+    if (overlap(mine, m) || out.some(x => overlap(x, m))) continue;
+    out.push(m); if (out.length === k) break;
+  }
+  return out;
+}
+const hasForms = i => !!ITEMS[i].mu;
+function similarItems(idx, k){
+  const it = ITEMS[idx], pre = it.mu.slice(0, 2), len = it.mu.length;
+  const sc = j => (ITEMS[j].mu.slice(0, 2) === pre ? 0 : 2) + Math.abs(ITEMS[j].mu.length - len) / 4 + Math.random();
+  return ITEMS.map((_, j) => j).filter(j => j !== idx && hasForms(j) && ITEMS[j].mu !== it.mu)
+    .map(j => [j, sc(j)]).sort((a, b) => a[1] - b[1]).slice(0, k).map(x => x[0]);
+}
+// ma'no savoli: moziy beriladi, 3 ma'nodan biri
+function tqMeaning(idx){
+  const right = meaning(ITEMS[idx]);
+  const opts = shuffle([right, ...otherMeanings(idx, 2)]);
+  return { i: idx, k: 'm', o: opts.map(m => ({ me: m })), a: opts.indexOf(right) };
+}
+// sig'a savoli: noto'g'ri qatorlarda bitta shakl o'zgartirilgan
+function tqForms(idx){
+  const it = ITEMS[idx];
+  const base = { mu: it.mu, am: it.am, ms: it.ms };
+  const keys = shuffle(Object.keys(it.v)), wrong = [];
+  keys.forEach(k => { const o = Object.assign({}, base); o[k] = it.v[k]; wrong.push(o); });
+  if (wrong.length < 2 && keys.length >= 2){ const o = Object.assign({}, base); keys.slice(0, 2).forEach(k => o[k] = it.v[k]); wrong.push(o); }
+  if (wrong.length < 2) similarItems(idx, 2 - wrong.length).forEach(j => wrong.push({ mu: ITEMS[j].mu, am: ITEMS[j].am, ms: ITEMS[j].ms }));
+  const sh = shuffle([base, ...wrong.slice(0, 2)]);
+  return { i: idx, k: 's', o: sh, a: sh.indexOf(base) };
+}
+function makeTestQs(p){
+  const ids = setIdx(p);
+  return [...shuffle(ids).map(tqMeaning), ...shuffle(ids.filter(hasForms)).map(tqForms)];
+}
+
+/* ---------- KO'RINISH BO'LAKLARI ---------- */
+const STAGES = { m: '1 · Маъноси', s: '2 · Сийғаси' };
+const formsOnly = o => `<span class="fr ar"><span>${esc(o.mu)}</span><span>${esc(o.am)}</span><span>${esc(o.ms)}</span></span>`;
+const plainMn = m => `<span class="mn">${esc(m)}</span>`;
+const correctBlock = it => `<div class="ar mid c">${esc(it.m)}</div>${it.mu ? formsOnly(it) : ''}<div class="mn" style="margin-top:6px">${esc(meaning(it))}</div>`;
+function optHtml(q, o){
+  if (!o) return '<span class="mn">— жавоб берилмади —</span>';
+  return q.k === 'm' ? plainMn(o.me) : formsOnly(o);
+}
+function diffHtml(q, o, ref){
+  if (!o || q.k === 'm' || !ref) return optHtml(q, o);
+  const c = f => o[f] !== ref[f] ? ' class="df"' : '';
+  return `<span class="fr ar"><span${c('mu')}>${esc(o.mu)}</span><span${c('am')}>${esc(o.am)}</span><span${c('ms')}>${esc(o.ms)}</span></span>`;
+}
+const backBtn = () => '<button class="back nav" id="bk" aria-label="Орқага">←</button>';
+const wireBack = () => { const b = document.getElementById('bk'); if (b) b.onclick = home; };
+
+/* ---------- TELEGRAM ---------- */
+const TG = () => { const w = window.Telegram && Telegram.WebApp; return w && w.initData ? w : null; };
+// Telegram ichidamizmi (Telegram skripti yuklanmagan bo'lsa ham)
+const inTgEnv = () => { if (TG() || window.TelegramWebviewProxy) return true; try{ return !!sessionStorage.getItem('__telegram__initParams'); }catch(e){ return false; } };
+const tgName = () => { const w = TG(), u = w && w.initDataUnsafe && w.initDataUnsafe.user;
+  return u ? ([u.first_name, u.last_name].filter(Boolean).join(' ').trim() || u.username || '') : ''; };
+function goBack(){
+  if (SCREEN !== 'home') return home();
+  try{ TG().BackButton.hide(); }catch(e){}
+  location.replace('index.html');   // tarix yig'ilmasin (tg.js bilan bir xil)
+}
+function ask(msg, cb){
+  const w = TG();
+  if (w && w.showConfirm && w.isVersionAtLeast('6.2')){ try{ w.showConfirm(msg, ok => { if (ok) cb(); }); return; }catch(e){} }
+  if (confirm(msg)) cb();
+}
+const canCloud = () => { const w = TG(); return w && w.CloudStorage && w.isVersionAtLeast('6.9') ? w : null; };
+// yulduzlar va xatolar ro'yxati boshqa telefonda ham chiqishi uchun
+function cloudPush(){
+  store.set('t', Date.now());
+  const w = canCloud(); if (!w) return;
+  const p = JSON.stringify({ t: store.get('t', 0), best: store.get('best', {}), mist: store.get('mist', []) });
+  if (p.length < 4000) try{ w.CloudStorage.setItem(SYNC_KEY, p); }catch(e){}
+}
+function cloudPull(){
+  const w = canCloud(); if (!w) return;
+  try{ w.CloudStorage.getItem(SYNC_KEY, (err, v) => {
+    let c = null; try{ c = v ? JSON.parse(v) : null; }catch(e){}
+    const best = store.get('best', {}); let changed = false, push = !c;
+    if (c){
+      const cb = c.best || {};
+      Object.keys(cb).forEach(p => { const x = Number(cb[p]); if (+p >= 0 && +p < NSETS && isFinite(x) && (best[p] == null || x > best[p])){ best[p] = x; changed = true; } });
+      Object.keys(best).forEach(p => { if (cb[p] == null || best[p] > cb[p]) push = true; });
+      if (changed) store.set('best', best);
+      if ((c.t || 0) > store.get('t', 0) && Array.isArray(c.mist)){ store.set('mist', c.mist.filter(okI)); store.set('t', c.t); changed = true; }
+      else if ((c.t || 0) < store.get('t', 0)) push = true;
+    }
+    if (push && (Object.keys(best).length || store.get('mist', []).length)) cloudPush();
+    if (changed && SCREEN === 'home') home();
+  }); }catch(e){}
+}
+
+/* ---------- NATIJANI YUBORISH ---------- */
+function fetchT(url, opt, ms){
+  const c = window.AbortController ? new AbortController() : null;
+  const tm = setTimeout(() => { if (c) c.abort(); }, ms || 20000);
+  return fetch(url, Object.assign({ signal: c ? c.signal : undefined }, opt || {})).finally(() => clearTimeout(tm));
+}
+const ST = {
+  wait: 'Натижа юборилмоқда…',
+  ok: 'Натижа рейтингга ёзилди ✓',
+  net: 'Интернет йўқ. Натижа сақланди, интернет чиққанда ўзи юборилади.',
+  err: 'Натижа ҳозир юборилмади, кейинроқ яна юборилади.',
+  bad: 'Натижа қабул қилинмади.',
+  out: `Рейтингга ёзилиши учун <a href="${BOT_LINK}">Телеграм орқали очинг</a>.`
+};
+function setSt(id, k){ const s = document.getElementById('st'); if (s && s.dataset.id === String(id)) s.innerHTML = ST[k]; }
+let FLUSHING = false;
+async function flush(){
+  const w = TG(); if (!w || FLUSHING) return;
+  FLUSHING = true;
+  try{
+    for (;;){
+      const q = store.get('q', []); if (!q.length) break;
+      const it = q[0]; let r = null;
+      try{
+        const res = await fetchT(API, { method: 'POST', body: JSON.stringify(Object.assign({ initData: w.initData }, it)) });
+        r = await res.json();
+      }catch(e){ setSt(it.id, 'net'); break; }
+      if (r && (r.ok || r.err === 'data')){   // yozildi yoki ma'lumot yaroqsiz — navbatdan chiqadi
+        store.set('q', store.get('q', []).filter(x => x.id !== it.id));
+        setSt(it.id, r.ok ? 'ok' : 'bad');
+        continue;
+      }
+      setSt(it.id, 'err'); break;               // sozlama yoki server xatosi — keyin yana urinadi
+    }
+  } finally { FLUSHING = false; }
+}
+
+/* ---------- BOSH SAHIFA ---------- */
+function home(){
+  SCREEN = 'home';
+  const best = store.get('best', {}), mist = store.get('mist', []), t = store.get('test', null);
+  let parts = '';
+  for (let p = 0; p < NSETS; p++){
+    const sc = best[p], [a, b] = setRange(p), cur = t && t.part === p;
+    parts += `<button class="set ${sc != null ? 'done' : ''} ${cur ? 'cur' : ''}" data-p="${p}">
+      <b>${p + 1}-қисм</b><span class="rng">№ ${ITEMS[a].n[0]}–${ITEMS[b - 1].n[0]}</span>
+      <span>${cur ? '▸ ' + t.pos + ' / ' + t.qs.length : sc != null ? stars(sc) : ''}</span></button>`;
+  }
+  $app.innerHTML = `
+    <a class="back nav" href="index.html" aria-label="Дарслар">←</a>
+    <div class="hd"><div class="lg ar">ف</div><div><h1>Феъллар</h1><p>${TOTAL} феъл · ${NSETS} қисм</p></div></div>
+    <div class="sets">${parts}</div>
+    <div class="row2"><button class="btn" id="bDc">📖 Луғат</button><button class="btn" id="bLb">🏆 Рейтинг</button></div>
+    ${mist.length ? `<button class="btn" id="bMs">↻ Хатолар · ${mist.length}</button>` : ''}`;
+  bDc.onclick = lugat; bLb.onclick = leaderboard;
+  if (window.bMs) bMs.onclick = mistakes;
+  $app.querySelectorAll('[data-p]').forEach(el => el.onclick = () => {
+    const p = +el.dataset.p;
+    if (t && t.part === p) return runQ('test');
+    const go = () => { store.del('test'); begin(p); };
+    if (t && t.pos > 0) return ask((t.part + 1) + '-қисмдаги бошланган тест ўчади. Давом этасизми?', go);
+    go();
+  });
+  window.scrollTo(0, 0);
+}
+function begin(p){
+  store.set('test', { part: p, qs: makeTestQs(p), pos: 0, ans: [], start: Date.now() });
+  runQ('test');
+}
+
+/* ---------- TEST VA XATOLAR ---------- */
+function runQ(key){
+  SCREEN = 'sub';
+  const t = store.get(key, null); if (!t) return home();
+  if (t.pos >= t.qs.length) return key === 'test' ? finishTest(t) : finishReview(t);
+  const again = () => runQ(key);
+  const q = t.qs[t.pos], it = ITEMS[q.i];
+  $app.innerHTML = `
+    <div class="meta"><button class="back" id="bH" style="margin:0" aria-label="Чиқиш">✕</button>${key === 'rev' ? '<span class="lbl">↻ Хатолар</span>' : ''}<span>${t.pos + 1} / ${t.qs.length}</span></div>
+    <div class="bar"><i style="width:${Math.round(t.pos * 100 / t.qs.length)}%"></i></div>
+    <div class="stage">${q.k === 'm' ? STAGES.m : STAGES.s}</div>
+    <div class="card c">${q.k === 's' ? '<div class="fr-head"><span>музореъ</span><span>амр</span><span>масдар</span></div>' : ''}<div class="ar big">${esc(it.m)}</div></div>
+    <div id="ops"></div><div id="fb"></div>`;
+  let locked = false;
+  q.o.forEach((o, k) => {
+    const b = document.createElement('button'); b.className = 'opt' + (q.k === 'm' ? ' plain' : ''); b.innerHTML = optHtml(q, o);
+    b.onclick = () => {
+      if (locked) return; locked = true;
+      t.ans.push(k); t.pos++; store.set(key, t);
+      const bs = ops.querySelectorAll('.opt'); bs.forEach(x => x.disabled = true);
+      bs[q.a].classList.add('ok');
+      if (k === q.a){ fb.innerHTML = '<div class="fb ok">Тўғри! ✓</div>'; setTimeout(() => { if (document.getElementById('fb') === fb) again(); }, 700); return; }
+      bs[k].classList.add('bad');
+      if (q.k === 's'){ bs[k].innerHTML = diffHtml(q, q.o[k], q.o[q.a]); bs[q.a].innerHTML = diffHtml(q, q.o[q.a], q.o[k]); }
+      fb.innerHTML = `<div class="fb bad">Нотўғри. Тўғриси:</div><div class="card">${correctBlock(it)}</div><button class="btn pri" id="bGo">Давом этиш →</button>`;
+      bGo.onclick = again; bGo.scrollIntoView({ block: 'nearest' });
+    };
+    ops.appendChild(b);
+  });
+  bH.onclick = home;
+  window.scrollTo(0, 0);
+}
+function finishTest(t){
+  while (t.ans.length < t.qs.length) t.ans.push(-1);
+  const score = t.qs.reduce((s, q, k) => s + (t.ans[k] === q.a ? 1 : 0), 0);
+  const secs = Math.round((Date.now() - t.start) / 1000);
+  const wrongIdx = [...new Set(t.qs.filter((q, k) => t.ans[k] !== q.a).map(q => q.i))];
+  const s100 = Math.round(score * 100 / t.qs.length);
+  const best = store.get('best', {}); if (best[t.part] == null || s100 > best[t.part]){ best[t.part] = s100; store.set('best', best); }
+  const mist = store.get('mist', []); wrongIdx.forEach(i => { if (!mist.includes(i)) mist.push(i); }); store.set('mist', mist);
+  store.del('test');
+  cloudPush();
+  const res = { id: Date.now(), part: t.part, score, total: t.qs.length, seconds: secs, qs: t.qs, ans: t.ans, queued: false };
+  if (inTgEnv()){
+    const q = store.get('q', []);
+    q.push({ id: res.id, part: t.part + 1, score, total: res.total, seconds: secs, wrong: wrongIdx.map(i => ITEMS[i].n[0] + ' ' + ITEMS[i].m) });
+    store.set('q', q); res.queued = true;
+  }
+  showResult(res);
+  flush();
+}
+function showResult(res){
+  SCREEN = 'sub';
+  const s100 = Math.round(res.score * 100 / res.total);
+  const wrong = res.qs.map((q, k) => ({ q, k })).filter(x => res.ans[x.k] !== x.q.a);
+  let mh = '';
+  wrong.forEach(({ q, k }) => { const it = ITEMS[q.i];
+    mh += `<div class="mist"><div class="lbl">${q.k === 'm' ? 'Маъно' : 'Сийға'}</div><div class="ar mid">${esc(it.m)}</div>
+      <div class="lbl">Сизнинг жавобингиз:</div><div class="opt bad${q.k === 'm' ? ' plain' : ''}" style="cursor:default">${diffHtml(q, q.o[res.ans[k]], q.o[q.a])}</div>
+      <div class="lbl">Тўғриси:</div><div class="opt ok${q.k === 'm' ? ' plain' : ''}" style="cursor:default">${diffHtml(q, q.o[q.a], q.o[res.ans[k]])}</div></div>`; });
+  const nm = tgName();
+  $app.innerHTML = `<div class="card c"><div class="lbl">${nm ? esc(nm) + ' · ' : ''}${res.part + 1}-қисм</div>
+      <div class="bigstar">${stars(s100)}</div><div style="font-size:1.25rem;font-weight:700">Тўғри: ${res.score} / ${res.total}</div><div class="note">⏱ ${mmss(res.seconds)}</div>
+      <p id="st" class="note" data-id="${res.id}">${!res.queued ? ST.out : TG() ? ST.wait : ST.net}</p>
+      ${wrong.length ? '<button class="btn pri" id="bM">↻ Хатоларни такрорлаш</button>' : ''}
+      <button class="btn" id="bL">🏆 Рейтинг</button><button class="btn" id="bHm">Бош саҳифа</button></div>
+    ${wrong.length ? `<div class="card"><details open><summary>Хатолар (${wrong.length})</summary>${mh}</details></div>` : ''}`;
+  if (window.bM) bM.onclick = mistakes;
+  bL.onclick = leaderboard; bHm.onclick = home;
+  window.scrollTo(0, 0);
+}
+function mistakes(){
+  if (store.get('rev', null)) return runQ('rev');
+  const ids = shuffle(store.get('mist', [])); if (!ids.length) return home();
+  store.set('rev', { qs: [...ids.map(tqMeaning), ...ids.filter(hasForms).map(tqForms)], pos: 0, ans: [] });
+  runQ('rev');
+}
+function finishReview(t){
+  SCREEN = 'sub';
+  const wrongSet = new Set(t.qs.filter((q, k) => t.ans[k] !== q.a).map(q => q.i));
+  const reviewed = [...new Set(t.qs.map(q => q.i))];
+  // faqat shu takrorda so'ralib, to'g'ri topilgan fe'llar ro'yxatdan chiqadi; keyin qo'shilgan xatolar qoladi
+  const left = store.get('mist', []).filter(i => !reviewed.includes(i) || wrongSet.has(i));
+  const fixedN = reviewed.filter(i => !wrongSet.has(i)).length;
+  store.set('mist', left); store.del('rev'); cloudPush();
+  $app.innerHTML = `<div class="card c" style="margin-top:20px">
+      <div class="bigstar">${left.length ? '↻' : '🎉'}</div>
+      <div style="font-size:1.25rem;font-weight:700">${fixedN} / ${reviewed.length}</div>
+      <p class="note">${left.length ? 'Қолди: ' + left.length : 'Хатолар қолмади'}</p>
+      ${left.length ? '<button class="btn pri big-btn" id="bA">Яна такрорлаш ▸</button>' : ''}
+      <button class="btn" id="bH">Бош саҳифа</button></div>`;
+  if (window.bA) bA.onclick = mistakes; bH.onclick = home; window.scrollTo(0, 0);
+}
+
+/* ---------- REYTING ---------- */
+function drawLb(rows){
+  const lb = document.getElementById('lb'); if (!lb) return;
+  if (!rows || !rows.length){ lb.innerHTML = '<p class="note">Ҳали ҳеч ким тест топширмаган.</p>'; return; }
+  const me = tgName().toLowerCase();
+  rows = rows.map(r => { const parts = (r.parts || []).slice(0, NSETS); while (parts.length < NSETS) parts.push(null);
+    return { name: String(r.name || ''), parts, sum: Math.round(parts.reduce((s, x) => s + (x || 0), 0) / NSETS * 10) / 10 }; })
+    .sort((x, y) => y.sum - x.sum);
+  lb.innerHTML = `<table><tr><th>#</th><th>Исм</th><th>Натижа</th></tr>${rows.map((r, k) => {
+    const pl = r.parts.map((s, p) => (p + 1) + ':' + (s == null ? '–' : starN(s) + '★')).join('  ');
+    return `<tr class="${me && r.name.toLowerCase() === me ? 'me' : ''}"><td>${k + 1}</td><td>${esc(r.name)}<div class="parts">${pl}</div></td>
+      <td><b style="font-size:1.15rem">${r.sum}</b> <span class="parts">/100</span><div>${stars(r.sum)}</div><div class="parts">${r.parts.filter(x => x != null).length}/${NSETS} қисм</div></td></tr>`;
+  }).join('')}</table>`;
+}
+async function leaderboard(){
+  SCREEN = 'sub';
+  $app.innerHTML = `${backBtn()}<h2>🏆 Рейтинг</h2><div class="card" id="lb"><p class="note">Юкланмоқда…</p></div>`;
+  wireBack(); window.scrollTo(0, 0);
+  const cached = store.get('lb', null); if (cached) drawLb(cached);
+  try{
+    const r = await fetchT(API + '?a=lb'); const j = await r.json();
+    if (!j || !j.ok) throw new Error('lb');
+    store.set('lb', j.rows); drawLb(j.rows);
+  }catch(e){
+    const lb = document.getElementById('lb');
+    if (lb && !cached) lb.innerHTML = '<p class="note">Рейтингни юклаб бўлмади. Интернетни текширинг.</p>';
+  }
+}
+
+/* ---------- LUG'AT ---------- */
+const AR_STRIP = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
+const arN = s => s.replace(AR_STRIP, '').replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ة/g, 'ه').replace(/\s+/g, ' ');
+const czN = s => s.toLowerCase().replace(/ҳ/g, 'х').replace(/қ/g, 'к').replace(/ғ/g, 'г').replace(/ў/g, 'у').replace(/[ъь’'ʼ`]/g, '');
+let IDX = null;
+const idx = () => IDX || (IDX = ITEMS.map(it => ({ ar: arN([it.m, it.mu, it.am, it.ms].filter(Boolean).join(' ')), me: czN(meaning(it)) })));
+const lxRow = it => `<div class="lx"><div class="lx-h"><span class="lx-n">№ ${it.n.join(', ')}</span><span class="ar lx-m">${esc(it.m)}</span></div>${it.mu ? formsOnly(it) : ''}<div class="mn">${esc(meaning(it))}</div></div>`;
+function lugat(){
+  SCREEN = 'sub';
+  $app.innerHTML = `${backBtn()}<h2>📖 Луғат</h2><input type="search" id="q" placeholder="Қидириш: арабча ёки маъноси" autocomplete="off" enterkeyhint="search"><div id="lst"></div>`;
+  wireBack();
+  const draw = () => {
+    const s = q.value.trim(); let h = '';
+    if (!s){
+      for (let p = 0; p < NSETS; p++){ const [a, b] = setRange(p);
+        h += `<div class="lx-p">${p + 1}-қисм · № ${ITEMS[a].n[0]}–${ITEMS[b - 1].n[0]}</div>`;
+        for (let i = a; i < b; i++) h += lxRow(ITEMS[i]); }
+    } else {
+      const X = idx(); let test;
+      if (/[؀-ۿ]/.test(s)){ const x = arN(s).trim(); test = i => X[i].ar.includes(x); }
+      else if (/^\d+$/.test(s)){ const n = +s; test = i => ITEMS[i].n.includes(n); }
+      else { const x = czN(/[a-z]/i.test(s) ? cyr(s) : s); test = i => X[i].me.includes(x); }
+      ITEMS.forEach((it, i) => { if (test(i)) h += lxRow(it); });
+      if (!h) h = '<p class="note c">Топилмади</p>';
+    }
+    lst.innerHTML = h;
+  };
+  let tm; q.oninput = () => { clearTimeout(tm); tm = setTimeout(draw, 150); };
+  draw(); window.scrollTo(0, 0);
+}
+// lotin yozuvida qidirilsa kirillga o'giriladi (o' → ў, sh → ш ...)
+const CYR_MAP = {a:'а',b:'б',d:'д',f:'ф',g:'г',h:'ҳ',i:'и',j:'ж',k:'к',l:'л',m:'м',n:'н',o:'о',p:'п',q:'қ',r:'р',s:'с',t:'т',u:'у',v:'в',x:'х',y:'й',z:'з',c:'ц',w:'в'};
+const APOS = "'’‘ʻʼ`", VOW = 'aeiouAEIOU';
+function cyrWord(w){
+  let out = '';
+  for (let i = 0; i < w.length; i++){
+    const ch = w[i], lo = ch.toLowerCase(), nx = (w[i + 1] || '').toLowerCase();
+    if ((lo === 'o' || lo === 'g') && nx && APOS.includes(nx)){ out += lo === 'o' ? 'ў' : 'ғ'; i++; continue; }
+    if (lo === 's' && nx === 'h'){ out += 'ш'; i++; continue; }
+    if (lo === 'c' && nx === 'h'){ out += 'ч'; i++; continue; }
+    if (lo === 'y' && nx === 'o' && APOS.includes(w[i + 2] || '-')){ out += 'й'; continue; }
+    if (lo === 'y' && nx && 'oaue'.includes(nx)){ out += {o:'ё', a:'я', u:'ю', e:'е'}[nx]; i++; continue; }
+    if (lo === 'e'){ const prev = w[i - 1] || ''; out += !prev || VOW.includes(prev) ? 'э' : 'е'; continue; }
+    if (APOS.includes(ch)){ out += i > 0 ? 'ъ' : ''; continue; }
+    out += CYR_MAP[lo] || ch;
+  }
+  return out;
+}
+const cyr = s => s.replace(/[A-Za-z][A-Za-z'’‘ʻʼ`]*/g, cyrWord);
+
+/* ---------- ISHGA TUSHIRISH ---------- */
+(function(){
+  // eski yoki buzilgan saqlangan ma'lumotlarni tozalash
+  store.set('mist', (store.get('mist', []) || []).filter(okI));
+  ['test', 'rev'].forEach(k => { const t = store.get(k, null);
+    if (t && (!Array.isArray(t.qs) || t.qs.some(q => !q || !okI(q.i)))) store.del(k); });
+  home();
+})();
+function onTg(){
+  const w = TG(); if (!w) return;
+  try{ if (w.BackButton && w.isVersionAtLeast('6.1')){ w.BackButton.show(); w.BackButton.onClick(goBack); } }catch(e){}
+  cloudPull(); flush();
+}
+if (document.documentElement.classList.contains('in-tg')) onTg(); else document.addEventListener('tgready', onTg);
+window.addEventListener('online', flush);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) flush(); });
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
