@@ -1,6 +1,6 @@
 /* Internet bo'lsa — yangi nusxa (3 soniyada kelmasa saqlangani), internetsiz — saqlangan nusxa */
-var C = 'arab-tili-v8';
-var FILES = ["./", "index.html", "tg.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "70.html", "91.html", "92.html", "feellar.html"];
+var C = 'arab-tili-v9';
+var FILES = ["./", "index.html", "tg.js", "shell.js", "shell.css", "manifest.webmanifest", "icon-192.png", "icon-512.png", "70.html", "91.html", "92.html", "feellar.html"];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(C).then(function (c) {

@@ -36,14 +36,35 @@ body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-
 .add.on{display:block}
 .tip{display:none;font-size:13px;color:var(--mu);text-align:center;margin-top:10px;line-height:1.5}
 .tip.on{display:block}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.cd{border-radius:18px;padding:14px;min-height:148px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:inherit;background:var(--cd);border:1px solid var(--bd)}
+.cd.a{background:var(--ac);border-color:var(--ac);color:var(--bg)}
+.cd svg{width:30px;height:30px}
+.cd .n{font-size:18px;font-weight:700}
+.cd .s{font-size:13px;opacity:.85}
+.cd .sp{flex:1}
+.cd.a .bar{background:rgba(255,255,255,.3)}
+.cd.a .bar i{background:var(--bg)}
+.soon{align-self:flex-start;font-size:12px;font-weight:700;color:#9a3412;background:#fde7dc;border-radius:8px;padding:4px 8px}
+.sec{font-size:13px;font-weight:700;color:var(--mu);letter-spacing:.04em;margin:0 0 8px}
+.cont{margin-bottom:18px}
+.cont .it .go{color:var(--mu);font-size:22px}
+.first .an{animation:rise .45s both}
+.first .bar i{animation:fill .9s .5s cubic-bezier(.2,.8,.2,1) both}
+.first .soon{animation:glow 2.4s 1.2s ease-in-out infinite}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fill{from{width:0}}
+@keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="w">
-  <div class="hd"><img src="icon-192.png" alt=""><div><h1>Араб тили</h1><p>Дарслар</p></div></div>
-  <div class="ls" id="fl" style="margin-bottom:10px"></div>
+<div class="w first" id="w">
+  <div class="hd an"><img src="icon-192.png" alt=""><div><h1>Араб тили</h1><p>Матнлар ва феъллар</p></div></div>
+  <div id="top"></div>
+  <div class="sec an" id="ms" style="animation-delay:.3s">МАТНЛАР</div>
   <div class="ls" id="ls"></div>
-  <button class="add" id="add">📲 Бош экранга қўшиш</button>
+  <button class="add an" id="add">Бош экранга қўшиш</button>
   <div class="tip" id="tip">iPhone'да: пастдаги «Улашиш» тугмаси → «На экран Домой / Add to Home Screen»</div>
 </div>
 <script>
@@ -54,19 +75,45 @@ function prog(raw,q){
   var n=0;if(S.q&&S.q.ch)S.q.ch.forEach(function(c){if(c!=null&&c!==false&&c!=="")n++});
   return {done:0,n:n,open:!!(S.pos||S.at||S.tab)};
 }
+var IC1='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></svg>';
+var IC2='<svg viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></svg>';
+function item(L,txt,cls,w,d){
+  return '<a class="it an" style="animation-delay:'+d+'s" href="'+L.n+'.html"><div class="nm">'+L.n+'</div><div class="mid"><div class="t">'+L.uz+'</div><div class="ar">'+L.ar+'</div><div class="pg'+cls+'">'+txt+'</div><div class="bar"><i style="width:'+w+'%"></i></div></div></a>';
+}
+/* Феъллар (natijalar feellar.html'dan) */
+var FNS=10,FCL=null;
+function flCard(){
+  var b={};try{b=JSON.parse(localStorage.getItem("fl200_best")||"{}")||{}}catch(e){}
+  if(FCL){try{var c=JSON.parse(FCL).best||{};for(var k in c)if(b[k]==null||c[k]>b[k])b[k]=c[k]}catch(e){}}
+  var n=Object.keys(b).length,txt=n?(n>=FNS?"✓ "+FNS+" / "+FNS+" қисм":"Қисмлар: "+n+" / "+FNS):"200 феъл · "+FNS+" қисм";
+  return '<a class="cd an" style="animation-delay:.16s" href="feellar.html">'+IC2+'<div class="n">Феъллар</div><div class="s">'+txt+'</div><div class="sp"></div><div class="bar"><i style="width:'+Math.round(Math.min(n,FNS)*100/FNS)+'%;background:#c2410c"></i></div></a>';
+}
+var LC=null;
 function render(cloud){
-  var h="";
-  LESSONS.forEach(function(L){
+  if(cloud)LC=cloud;else cloud=LC;
+  var h="",sum=0,last=null,lastH="";
+  try{last=localStorage.getItem("oxirgi-dars")}catch(e){}
+  LESSONS.forEach(function(L,i){
     var raw=null;try{raw=localStorage.getItem(L.key)}catch(e){}
     if(cloud&&cloud[L.key]){try{var c=JSON.parse(cloud[L.key]);var lt=+(localStorage.getItem(L.key+"-t")||0);if(c.t>lt)raw=c.v}catch(e){}}
     var p=prog(raw,L.q),txt="Янги",cls="",w=0;
     if(p&&p.done){txt="✓ Машқ тугатилган";cls=" ok";w=100}
     else if(p&&p.n){txt="Машқ: "+p.n+" / "+L.q;w=Math.round(p.n*100/L.q)}
     else if(p&&p.open)txt="Бошланган";
-    h+='<a class="it" href="'+L.n+'.html"><div class="nm">'+L.n+'</div><div class="mid"><div class="t">'+L.uz+'</div><div class="ar">'+L.ar+'</div><div class="pg'+cls+'">'+txt+'</div>'+(w?'<div class="bar"><i style="width:'+w+'%"></i></div>':'')+'</div></a>';
+    sum+=w;
+    h+=item(L,txt,cls,w,(.36+i*.06).toFixed(2));
+    if(String(L.n)===last)lastH=item(L,txt,cls,w,.24);
   });
+  var avg=LESSONS.length?Math.round(sum/LESSONS.length):0;
+  var t='<div class="cards">'+
+    '<a class="cd a an" style="animation-delay:.08s" href="#ms">'+IC1+'<div class="n">Матнлар</div><div class="s">'+LESSONS.length+' дарс · аудио, эъроб</div><div class="sp"></div><div class="bar"><i style="width:'+avg+'%"></i></div></a>'+
+    flCard()+
+    '</div>';
+  if(lastH)t+='<div class="sec an" style="animation-delay:.2s">ДАВОМ ЭТИШ</div><div class="cont">'+lastH+'</div>';
+  document.getElementById("top").innerHTML=t;
   document.getElementById("ls").innerHTML=h;
 }
+setTimeout(function(){document.getElementById("w").classList.remove("first")},2000);
 render();
 var add=document.getElementById("add"),tip=document.getElementById("tip"),dp=null;
 /* Telegram ichida */
@@ -74,6 +121,7 @@ function onTg(){
   var w=Telegram.WebApp;
   if(w.CloudStorage&&w.isVersionAtLeast("6.9")){
     w.CloudStorage.getItems(LESSONS.map(function(L){return L.key}),function(e,v){if(!e&&v)render(v)});
+    w.CloudStorage.getItem("fl200_sync",function(e,v){if(!e&&v){FCL=v;render()}});
   }
   if(w.isVersionAtLeast("8.0")&&w.addToHomeScreen){
     var show=function(){add.classList.add("on");add.onclick=function(){w.addToHomeScreen()}};
@@ -88,26 +136,6 @@ var ios=/iphone|ipad|ipod/i.test(navigator.userAgent),standalone=window.navigato
 setTimeout(function(){if(ios&&!standalone&&!document.documentElement.classList.contains("in-tg"))tip.classList.add("on")},800);
 window.addEventListener("pageshow",function(){render()});
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){});
-</script>
-<script>
-/* Феъллар: bosh sahifadagi qator (natijalar feellar.html'dan) */
-(function(){
-  var NS=10,CL=null;
-  function best(){
-    var b={};try{b=JSON.parse(localStorage.getItem("fl200_best")||"{}")||{}}catch(e){}
-    if(CL){try{var c=JSON.parse(CL).best||{};for(var p in c)if(b[p]==null||c[p]>b[p])b[p]=c[p]}catch(e){}}
-    return b;
-  }
-  function draw(){
-    var b=best(),n=Object.keys(b).length,txt=n?"Қисмлар: "+n+" / "+NS:"200 феъл · "+NS+" қисм",cls="";
-    if(n>=NS){txt="✓ "+NS+" / "+NS+" қисм";cls=" ok"}
-    document.getElementById("fl").innerHTML='<a class="it" href="feellar.html"><div class="nm" style="font-family:\'Noto Naskh Arabic\',serif;font-size:24px">ف</div><div class="mid"><div class="t">Феъллар</div><div class="ar">الْأَفْعَالُ</div><div class="pg'+cls+'">'+txt+'</div>'+(n?'<div class="bar"><i style="width:'+Math.round(n*100/NS)+'%"></i></div>':'')+'</div></a>';
-  }
-  draw();
-  function tg(){var w=Telegram.WebApp;if(w.CloudStorage&&w.isVersionAtLeast("6.9"))w.CloudStorage.getItem("fl200_sync",function(e,v){if(!e&&v){CL=v;draw()}})}
-  if(document.documentElement.classList.contains("in-tg"))tg();else document.addEventListener("tgready",tg);
-  window.addEventListener("pageshow",draw);
-})();
 </script>
 </body>
 </html>
