@@ -265,7 +265,7 @@ function catOf(o){
   if(/^Фоил/.test(r))return "o";
   if(/^Мафъул биҳ/.test(r))return "b";
   if(/^Жар-мажрур/.test(ty)||/жарр ҳарфидан кейин/i.test(r))return "j";
-  if(/^Зарф|[Ҳҳ]ол ўрнида/.test(r)||/зарф/.test(ty))return "h";
+  if(/^Зарф|^Ҳол|[Ҳҳ]ол ўрнида/.test(r)||/зарф/.test(ty))return "h";
   return "";
 }
 function mkCat(){

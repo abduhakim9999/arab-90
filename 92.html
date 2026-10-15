@@ -256,6 +256,7 @@ var CATOV={"3-0":"m"},CAT={},bolak=false;
 function catOf(o){
   var ty=o.ty||"",r=o.role||"";
   if(/[Фф]еъл/.test(ty))return "f";
+  if(/[Мм]афъул мутлақ/.test(r))return "-";
   if(/^Ҳарф \(жарр ҳарфи\)/.test(ty))return ">";
   if(/^(Сифат|Мудоф илайҳ|Атф|Бадал|Ишоранинг)/.test(r))return "^";
   if(/^Ҳарф/.test(ty))return "";
@@ -264,7 +265,7 @@ function catOf(o){
   if(/^Фоил/.test(r))return "o";
   if(/^Мафъул биҳ/.test(r))return "b";
   if(/^Жар-мажрур/.test(ty)||/жарр ҳарфидан кейин/i.test(r))return "j";
-  if(/^Зарф|[Ҳҳ]ол ўрнида/.test(r)||/зарф/.test(ty))return "h";
+  if(/^Зарф|^Ҳол|[Ҳҳ]ол ўрнида/.test(r)||/зарф/.test(ty))return "h";
   return "";
 }
 function mkCat(){

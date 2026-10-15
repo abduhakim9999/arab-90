@@ -1,6 +1,6 @@
 /* Internetsiz ishlash: avval saqlangan nusxa ko'rsatiladi, orqada yangisi yuklanadi */
-var C = 'arab-tili-v4';
-var FILES = ["./", "index.html", "tg.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "70.html", "92.html"];
+var C = 'arab-tili-v5';
+var FILES = ["./", "index.html", "tg.js", "manifest.webmanifest", "icon-192.png", "icon-512.png", "70.html", "91.html", "92.html"];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(C).then(function (c) { return c.addAll(FILES); }).then(function () { return self.skipWaiting(); }));
