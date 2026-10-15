@@ -51,9 +51,19 @@
     if (!w || !w.initData) return;          /* oddiy brauzer */
     W = w;
     try { w.ready(); w.expand(); } catch (e) {}
-    if (HOME && w.BackButton) {
-      try { w.BackButton.show(); w.BackButton.onClick(function () { location.href = HOME; }); } catch (e) {}
+    if (w.BackButton) {
+      try {
+        if (HOME) { w.BackButton.show(); w.BackButton.onClick(function () { location.replace(HOME); }); }
+        else w.BackButton.hide();            /* bosh sahifa: Telegram o'zi yopadi */
+      } catch (e) {}
     }
+    /* sahifalar orasida tarix yig'ilmasin */
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('a[href]');
+      if (!a || a.target || a.hasAttribute('download') || a.origin !== location.origin ||
+          /^(#|javascript:)/.test(a.getAttribute('href')) || a.pathname === location.pathname) return;
+      ev.preventDefault(); location.replace(a.href);
+    });
     if (KEY && w.CloudStorage && w.isVersionAtLeast && w.isVersionAtLeast('6.9')) {
       pull();
       document.addEventListener('visibilitychange', function () { if (document.hidden) { last = 0; up(); } });
