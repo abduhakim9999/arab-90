@@ -649,7 +649,7 @@ if(au){
       S.q.o.forEach(function(x,i){var k=x[0]+"-"+x[1],o=TRK[k]&&!QUR[k]?qends(k):null;if(!o){okAll=false;return}var c=S.q.ch[i];Z.push({l:x[0],w:x[1],o:o,ch:(c==null?null:c),ok:c!=null&&o[c]&&o[c].w==get(k).v})});
       if(okAll&&Z.length){QZ=Z;qi=Math.min(S.q.qi||0,Z.length-1);qsc=Z.filter(function(q){return q.ok}).length;if(S.qr)_qres();else _qshow()}
     }
-    if(S.tab&&S.tab!=1)tab(S.tab);
+    
     if(au&&S.at>0){var st=function(){try{progSeek=true;au.currentTime=S.at}catch(e){}};if(au.readyState>=1)st();else au.addEventListener("loadedmetadata",st,{once:true})}
     if(S.pos&&vis()){var rp=function(){if(uScr<t0&&vis())setPos(S.pos)};setTimeout(rp,450);setTimeout(rp,1300);window.addEventListener("load",function(){setTimeout(rp,50)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){setTimeout(rp,50)})}
   }catch(e){}
