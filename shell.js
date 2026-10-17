@@ -64,15 +64,53 @@
   pb.className = 'pbar';
   pb.innerHTML =
     '<button class="pb" type="button" aria-label="Ўқиш / тўхтатиш"><i class="i1"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4l12 8-12 8z" fill="currentColor"/></svg></i><i class="i2"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg></i></button>' +
-    '<div class="md"><div class="lb">Матнни тинглаш</div><div class="tk"><div><i></i></div></div></div>' +
+    '<div class="md"><div class="pq1"><div class="lb">Матнни тинглаш</div><span class="pqt">0:00</span></div>' +
+    '<div class="pq2"><button class="pqs" type="button" data-d="-5" aria-label="5 сония орқага"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z" fill="currentColor"/><text x="12" y="16.2" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor">5</text></svg></button>' +
+    '<div class="pqk"><div class="pqr"><i></i></div><b></b></div>' +
+    '<button class="pqs" type="button" data-d="5" aria-label="5 сония олдинга"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2l5 4-5 4V7a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z" fill="currentColor"/><text x="12" y="16.2" text-anchor="middle" font-size="7" font-weight="700" fill="currentColor">5</text></svg></button></div></div>' +
     '<button class="sp" type="button" aria-label="Тезлик">1×</button>';
   document.body.appendChild(pb);
-  var lb = $('.lb', pb), bar = $('.tk i', pb), sp = $('.sp', pb), lastLn = null;
+  var lb = $('.lb', pb), bar = $('.pqk i', pb), sp = $('.sp', pb), lastLn = null;
   $('.pb', pb).addEventListener('click', function () { if (typeof ppl === 'function') ppl(); });
-  $('.tk', pb).addEventListener('click', function (e) {
-    var r = this.getBoundingClientRect();
-    if (au.duration) au.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * au.duration;
+  var tk = $('.pqk', pb), th = $('.pqk b', pb), tm = $('.pqt', pb), drag = false, dragP = 0;
+  function fmt(t) { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ':' + ('0' + t % 60).slice(-2); }
+  function setP(p) { p = Math.max(0, Math.min(1, p)) * 100; bar.style.width = p + '%'; th.style.left = p + '%'; }
+  function draw() {
+    var d = au.duration;
+    if (!d || !isFinite(d)) { tm.textContent = fmt(au.currentTime); return; }
+    var t = drag ? dragP * d : au.currentTime;
+    if (!drag) setP(t / d);
+    tm.textContent = fmt(t) + ' / ' + fmt(d);
+  }
+  function pos(e) { var r = tk.getBoundingClientRect(); return (e.clientX - r.left) / r.width; }
+  tk.addEventListener('pointerdown', function (e) {
+    if (!au.duration) return;
+    drag = true; dragP = Math.max(0, Math.min(1, pos(e)));
+    tk.classList.add('dr'); setP(dragP); draw();
+    try { tk.setPointerCapture(e.pointerId); } catch (x) {}
+    e.preventDefault();
   });
+  tk.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    dragP = Math.max(0, Math.min(1, pos(e))); setP(dragP); draw();
+  });
+  function endDrag() {
+    if (!drag) return;
+    drag = false; tk.classList.remove('dr');
+    if (au.duration) au.currentTime = dragP * au.duration;
+    draw();
+  }
+  tk.addEventListener('pointerup', endDrag);
+  tk.addEventListener('pointercancel', endDrag);
+  [].forEach.call(pb.querySelectorAll('.pqs'), function (b) {
+    b.addEventListener('click', function () {
+      if (!au.duration) return;
+      au.currentTime = Math.max(0, Math.min(au.duration - 0.1, au.currentTime + parseFloat(b.getAttribute('data-d'))));
+      draw();
+      if (!RM) { b.classList.add('pop'); setTimeout(function () { b.classList.remove('pop'); }, 170); }
+    });
+  });
+  (function loop() { if (!au.paused) draw(); requestAnimationFrame(loop); })();
   function state() { pb.classList.toggle('on', !au.paused && !au.ended); }
   function label() {
     var w = $('#tx .ws span.pl'), ln = w ? w.closest('.ln') : null;
@@ -87,11 +125,13 @@
       }
       lb.textContent = t || 'Матнни тинглаш';
     }
-    if (au.duration) bar.style.width = (au.currentTime / au.duration * 100) + '%';
+    draw();
   }
   ['play', 'pause', 'ended'].forEach(function (ev) { au.addEventListener(ev, function () { state(); label(); }); });
   au.addEventListener('timeupdate', label);
   au.addEventListener('loadedmetadata', label);
+  au.addEventListener('seeked', draw);
+  au.addEventListener('durationchange', draw);
   /* tezlik: 1× → 0.75× → 0.5× */
   var SB = [].slice.call(document.querySelectorAll('.spd button'));
   function rate() { var o = SB.filter(function (b) { return b.classList.contains('on'); })[0]; return o ? parseFloat(o.textContent) : 1; }
