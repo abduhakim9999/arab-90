@@ -142,3 +142,17 @@ body.nop .pbar{transform:translateY(24px);opacity:0;pointer-events:none}
 
 /* луғат: тартиб рақамлари кўрсатилмайди */
 #p2 .vno{display:none}
+
+/* луғатда қидириш */
+.lq{position:sticky;top:0;z-index:5;background:var(--bg);padding:6px 0 8px;margin-bottom:4px}
+.lq .lqb{display:flex;align-items:center;gap:8px;background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:0 6px 0 12px;height:46px}
+.lq .lqb:focus-within{border-color:var(--ac)}
+.lq svg{flex:none;color:var(--mu)}
+.lq input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--tx);font:inherit;font-size:16px;height:100%;-webkit-user-select:text!important;user-select:text!important}
+.lq input::placeholder{color:var(--mu)}
+.lq .lqx{flex:none;width:34px;height:34px;border:0;border-radius:17px;background:var(--tint);color:var(--ac);font-size:18px;line-height:1;cursor:pointer;display:none}
+.lq.on .lqx{display:block}
+.lq .lqn{font-size:12px;color:var(--mu);margin:6px 4px 0;min-height:15px}
+#p2 .g.lqh{display:none}
+#p2 .eb.lqm{box-shadow:inset 3px 0 0 var(--ac)}
+.lq input::-webkit-search-cancel-button{display:none}

@@ -62,7 +62,49 @@
   (function () {
     var p2 = document.getElementById('p2');
     if (!p2) return;
-    ['contextmenu', 'selectstart', 'dragstart'].forEach(function (n) { p2.addEventListener(n, function (e) { e.preventDefault(); }); });
+    ['contextmenu', 'selectstart', 'dragstart'].forEach(function (n) { p2.addEventListener(n, function (e) { if (!(e.target && e.target.tagName === 'INPUT')) e.preventDefault(); }); });
+
+    /* lug'atda qidirish: o'zbekcha (kirill yoki lotin) va arabcha (harakatli yoki harakatsiz) */
+    if (!p2.querySelector('.g')) return;
+    var LAT = [["o'", 'ў'], ["g'", 'ғ'], ['sh', 'ш'], ['ch', 'ч'], ['yo', 'ё'], ['yu', 'ю'], ['ya', 'я'], ['ye', 'е'], ['ts', 'ц']],
+        L1 = { a: 'а', b: 'б', d: 'д', e: 'е', f: 'ф', g: 'г', h: 'ҳ', i: 'и', j: 'ж', k: 'к', l: 'л', m: 'м', n: 'н', o: 'о', p: 'п', q: 'қ', r: 'р', s: 'с', t: 'т', u: 'у', v: 'в', x: 'х', y: 'й', z: 'з', c: 'с', w: 'в' };
+    function arN(t) {
+      return t.replace(/[\u064B-\u065F\u0670\u0640]/g, '').replace(/[أإآٱ]/g, 'ا').replace(/ى/g, 'ي').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي').replace(/ة/g, 'ه');
+    }
+    function uzN(t) {
+      t = t.toLowerCase().replace(/[ʻʼ’‘`´]/g, "'");
+      if (/[a-z]/.test(t)) {
+        LAT.forEach(function (p) { t = t.split(p[0]).join(p[1]); });
+        t = t.replace(/[a-z]/g, function (c) { return L1[c] || c; }).replace(/'/g, 'ъ');
+      }
+      return t.replace(/э/g, 'е').replace(/ё/g, 'е');
+    }
+    function norm(t) { return uzN(arN(t)).replace(/\s+/g, ' '); }
+    var box = document.createElement('div');
+    box.className = 'lq';
+    box.innerHTML = '<div class="lqb"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+      '<input type="text" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Қидириш: ўзбекча ёки арабча"><button class="lqx" type="button" aria-label="Тозалаш">×</button></div><div class="lqn"></div>';
+    p2.insertBefore(box, p2.firstChild);
+    var inp = box.querySelector('input'), cnt = box.querySelector('.lqn'), G = null, tq = null;
+    function idx() {
+      G = [].map.call(p2.querySelectorAll('.g'), function (g) {
+        return { g: g, t: norm(g.textContent), ex: [].map.call(g.querySelectorAll('.eb'), function (e) { return { e: e, t: norm(e.textContent) }; }) };
+      });
+    }
+    function run() {
+      if (!G) idx();
+      var q = norm(inp.value.trim()), n = 0;
+      box.classList.toggle('on', !!inp.value);
+      G.forEach(function (x) {
+        var hit = !q || x.t.indexOf(q) > -1;
+        x.g.classList.toggle('lqh', !hit);
+        if (hit) n++;
+        x.ex.forEach(function (e) { e.e.classList.toggle('lqm', !!q && e.t.indexOf(q) > -1); });
+      });
+      cnt.textContent = q ? (n ? n + ' та топилди' : 'Ҳеч нарса топилмади') : '';
+    }
+    inp.addEventListener('input', function () { clearTimeout(tq); tq = setTimeout(run, 120); });
+    box.querySelector('.lqx').addEventListener('click', function () { inp.value = ''; run(); inp.focus(); });
   })();
   /* --- pleyer --- */
   if (!au) return;
