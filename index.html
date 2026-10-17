@@ -30,6 +30,9 @@ body{margin:0;color:var(--tx);font-family:system-ui,-apple-system,sans-serif;pad
 .mid{flex:1;min-width:0}
 .t{font-size:16px;font-weight:600}
 .ar{font-family:"DarsNaskh","Noto Naskh Arabic",serif;direction:rtl;text-align:right;font-size:21px;line-height:1.6;color:var(--mu)}
+@font-face{font-family:"DarsNaskh";src:url(naskh.woff) format("woff");font-display:swap}
+.it .mid .ar{font-size:26px;line-height:1.45;color:var(--tx)}
+.it .mid .t{font-size:13.5px;font-weight:500;color:var(--mu);margin-top:1px}
 .pg{font-size:13px;color:var(--mu);margin-top:2px}
 .pg.ok{color:var(--ok)}
 .bar{height:4px;border-radius:4px;background:var(--bd);margin-top:6px;overflow:hidden}
@@ -117,7 +120,7 @@ function prog(raw,q){
 var IC1='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></svg>';
 var IC2='<svg viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></svg>';
 function item(L,txt,cls,w,d){
-  return '<a class="it an" style="animation-delay:'+d+'s" href="'+L.n+'.html"><div class="nm">'+L.n+'</div><div class="mid"><div class="t">'+L.uz+'</div><div class="ar">'+L.ar+'</div><div class="pg'+cls+'">'+txt+'</div><div class="bar"><i style="width:'+w+'%"></i></div></div></a>';
+  return '<a class="it an" style="animation-delay:'+d+'s" href="'+L.n+'.html"><div class="nm">'+L.n+'</div><div class="mid"><div class="ar">'+L.ar+'</div><div class="t">'+L.uz+'</div><div class="pg'+cls+'">'+txt+'</div><div class="bar"><i style="width:'+w+'%"></i></div></div></a>';
 }
 /* Феъллар (natijalar feellar.html'dan) */
 var FNS=10,FCL=null;
