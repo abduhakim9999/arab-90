@@ -6,6 +6,30 @@
   var TK = KEY + '-t', W = null, tm = null, last = 0, BLOCK = false;
   var LT0 = 0; try { LT0 = +(localStorage.getItem(TK) || 0); } catch (e) {}
 
+  /* bosilganda darhol belgi: sahifa yuklanayotganini ko'rsatadi */
+  try {
+    var css = document.createElement('style');
+    css.textContent = 'html.go body{pointer-events:none}' +
+      'html.go::before{content:"";position:fixed;z-index:99;left:0;top:0;height:3px;width:100%;background:#0f7a4f;transform-origin:left;animation:gobar 1.4s cubic-bezier(.2,.8,.2,1) forwards}' +
+      'html.go::after{content:"";position:fixed;inset:0;z-index:98;background:rgba(0,0,0,.05)}' +
+      '@keyframes gobar{from{transform:scaleX(.08)}to{transform:scaleX(.9)}}';
+    (document.head || document.documentElement).appendChild(css);
+  } catch (e) {}
+  function inTg() {
+    if (W) return true;
+    if (window.TelegramWebviewProxy || /tgWebApp/.test(location.hash)) return true;
+    try { return !!sessionStorage.getItem('__telegram__initParams'); } catch (e) { return false; }
+  }
+  /* sahifalar orasida o'tish: Telegramda tarix yig'ilmasin */
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href]');
+    if (!a || ev.defaultPrevented || a.target || a.hasAttribute('download') || a.origin !== location.origin ||
+        /^(#|javascript:)/.test(a.getAttribute('href')) || a.pathname === location.pathname) return;
+    document.documentElement.classList.add('go');
+    if (inTg()) { ev.preventDefault(); location.replace(a.href); }
+  });
+  window.addEventListener('pageshow', function () { document.documentElement.classList.remove('go'); });
+
   /* mahalliy yozuvlarga vaqt belgisi */
   if (KEY) {
     try {
@@ -53,17 +77,10 @@
     try { w.ready(); w.expand(); } catch (e) {}
     if (w.BackButton) {
       try {
-        if (HOME) { w.BackButton.show(); w.BackButton.onClick(function () { location.replace(HOME); }); }
+        if (HOME) { w.BackButton.show(); w.BackButton.onClick(function () { document.documentElement.classList.add('go'); location.replace(HOME); }); }
         else w.BackButton.hide();            /* bosh sahifa: Telegram o'zi yopadi */
       } catch (e) {}
     }
-    /* sahifalar orasida tarix yig'ilmasin */
-    document.addEventListener('click', function (ev) {
-      var a = ev.target.closest && ev.target.closest('a[href]');
-      if (!a || a.target || a.hasAttribute('download') || a.origin !== location.origin ||
-          /^(#|javascript:)/.test(a.getAttribute('href')) || a.pathname === location.pathname) return;
-      ev.preventDefault(); location.replace(a.href);
-    });
     if (KEY && w.CloudStorage && w.isVersionAtLeast && w.isVersionAtLeast('6.9')) {
       pull();
       document.addEventListener('visibilitychange', function () { if (document.hidden) { last = 0; up(); } });
