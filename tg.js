@@ -30,6 +30,18 @@
   });
   window.addEventListener('pageshow', function () { document.documentElement.classList.remove('go'); });
 
+  /* yangi versiya yuklanib bo'lishi bilan sahifa bir marta o'zi yangilanadi */
+  try {
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      var rl = false;
+      navigator.serviceWorker.addEventListener('controllerchange', function () {
+        if (rl) return; rl = true;
+        document.documentElement.classList.add('go');
+        location.reload();
+      });
+    }
+  } catch (e) {}
+
   /* mahalliy yozuvlarga vaqt belgisi */
   if (KEY) {
     try {
