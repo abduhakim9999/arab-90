@@ -179,6 +179,25 @@
   ['play', 'pause', 'ended'].forEach(function (ev) { au.addEventListener(ev, function () { state(); label(); }); });
   au.addEventListener('timeupdate', label);
   au.addEventListener('loadedmetadata', label);
+  /* o'qilayotgan qator pleyer ostiga tushib qolmasin: ko'rinadigan oraliqning yuqori qismida ushlab turiladi */
+  if (typeof window.follow === 'function') {
+    var fA = null;
+    window.follow = function (e) {
+      if (!e) return;
+      var ln = e.closest('.ln') || e, r = ln.getBoundingClientRect(), wr = e.getBoundingClientRect();
+      var bar = document.getElementById('tg'), top = bar ? bar.getBoundingClientRect().bottom + 8 : 70;
+      var bot = pb.getBoundingClientRect().top - 10; if (bot < top + 120) bot = window.innerHeight - 10;
+      var av = bot - top;
+      var tall = r.height > av * 0.6, ref = tall ? wr : r;
+      if (ref.top >= top && ref.bottom <= top + av * 0.7) return;
+      var sc = document.scrollingElement || document.documentElement;
+      var from = sc.scrollTop, to = Math.max(0, Math.min(sc.scrollHeight - window.innerHeight, from + ref.top - top - av * 0.12)), t0 = 0;
+      if (Math.abs(to - from) < 4) return;
+      if (fA) cancelAnimationFrame(fA);
+      function st(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / 380), q = p < .5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2; window.scrollTo(0, from + (to - from) * q); fA = p < 1 ? requestAnimationFrame(st) : null; }
+      fA = requestAnimationFrame(st);
+    };
+  }
   /* oxiriga yetganda boshiga qaytadi; oxirida turib ▶ bosilsa boshidan o'qiydi */
   au.addEventListener('ended', function () { setTimeout(function () { try { au.currentTime = 0; } catch (e) {} draw(); label(); }, 60); });
   au.addEventListener('play', function () { if (au.duration && au.currentTime >= au.duration - 0.3) { try { au.currentTime = 0; } catch (e) {} } });
