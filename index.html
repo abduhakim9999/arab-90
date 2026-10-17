@@ -102,6 +102,9 @@ body{margin:0;color:var(--tx);font-family:system-ui,-apple-system,sans-serif;pad
 .it .ic{position:relative;flex:none;width:62px;height:62px;border-radius:16px;background:var(--icl);display:flex;align-items:center;justify-content:center}
 @media (prefers-color-scheme:dark){.it .ic{background:var(--icd)}}
 .it .ic b{position:absolute;right:-5px;bottom:-5px;min-width:22px;text-align:center;font-size:11px;font-weight:700;line-height:18px;background:var(--ac);color:#fff;border-radius:9px;padding:0 5px;box-shadow:0 0 0 2px var(--cd)}
+
+.it.lst{outline:2px solid var(--ac);outline-offset:-2px}
+.lsb{display:inline-block;background:var(--ac);color:#fff;font-size:11px;font-weight:700;line-height:18px;padding:0 8px;border-radius:9px;margin-right:6px;vertical-align:1px}
 </style>
 </head>
 <body>
@@ -125,8 +128,8 @@ function prog(raw,q){
 }
 var IC1='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 6h14M5 10h14M5 14h10M5 18h7"/></svg>';
 var IC2='<svg viewBox="0 0 24 24" fill="none" stroke="#c2410c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.2l2.4 2.4 4.6-5"/></svg>';
-function item(L,txt,cls,w,d){
-  return '<a class="it an" style="animation-delay:'+d+'s" href="'+L.n+'.html">'+icn(L.n)+'<div class="mid"><div class="ar">'+L.ar+'</div><div class="t">'+L.uz+'</div><div class="pg'+cls+'">'+txt+'</div><div class="bar"><i style="width:'+w+'%"></i></div></div></a>';
+function item(L,txt,cls,w,d,lst){
+  return '<a class="it an'+(lst?' lst':'')+'" style="animation-delay:'+d+'s" href="'+L.n+'.html">'+icn(L.n)+'<div class="mid"><div class="ar">'+L.ar+'</div><div class="t">'+L.uz+'</div><div class="pg'+cls+'">'+(lst?'<span class="lsb">▶ Давом этиш</span>':'')+txt+'</div><div class="bar"><i style="width:'+w+'%"></i></div></div></a>';
 }
 /* Феъллар (natijalar feellar.html'dan) */
 var FNS=10,FCL=null;
@@ -149,15 +152,13 @@ function render(cloud){
     else if(p&&p.n){txt="Машқ: "+p.n+" / "+L.q;w=Math.round(p.n*100/L.q)}
     else if(p&&p.open)txt="Бошланган";
     sum+=w;
-    h+=item(L,txt,cls,w,(.36+i*.06).toFixed(2));
-    if(String(L.n)===last)lastH=item(L,txt,cls,w,.24);
+    h+=item(L,txt,cls,w,(.36+i*.06).toFixed(2),String(L.n)===last);
   });
   var avg=LESSONS.length?Math.round(sum/LESSONS.length):0;
   var t='<div class="cards">'+
     '<a class="cd a an" style="animation-delay:.08s" href="#ms">'+IC1+'<div class="n">Матнлар</div><div class="s">'+LESSONS.length+' дарс · аудио, эъроб</div><div class="sp"></div><div class="bar"><i style="width:'+avg+'%"></i></div></a>'+
     flCard()+
     '</div>';
-  if(lastH)t+='<div class="sec an" style="animation-delay:.2s">ДАВОМ ЭТИШ</div><div class="cont">'+lastH+'</div>';
   document.getElementById("top").innerHTML=t;
   document.getElementById("ls").innerHTML=h;
 }
