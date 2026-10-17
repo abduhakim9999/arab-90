@@ -136,3 +136,6 @@ body.nop .pbar{transform:translateY(24px);opacity:0;pointer-events:none}
 @keyframes okp{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
 @keyframes pop{0%{opacity:0;transform:scale(.4)}70%{opacity:1;transform:scale(1.15)}100%{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){*,*::after{animation:none!important;transition:none!important}}
+
+/* luғат ва машқ: сурганда сўзлар белгиланиб қолмасин */
+#p2,#p2 *,#p3,#p3 *,.tr,.tr *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}

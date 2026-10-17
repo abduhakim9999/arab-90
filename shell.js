@@ -57,6 +57,13 @@
   }
   sync();
 
+
+  /* lug'at: bosib turganda belgilash menyusi chiqmasin */
+  (function () {
+    var p2 = document.getElementById('p2');
+    if (!p2) return;
+    ['contextmenu', 'selectstart', 'dragstart'].forEach(function (n) { p2.addEventListener(n, function (e) { e.preventDefault(); }); });
+  })();
   /* --- pleyer --- */
   if (!au) return;
   var box = au.parentNode; box.style.display = 'none';
