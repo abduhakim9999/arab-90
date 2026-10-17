@@ -179,6 +179,9 @@
   ['play', 'pause', 'ended'].forEach(function (ev) { au.addEventListener(ev, function () { state(); label(); }); });
   au.addEventListener('timeupdate', label);
   au.addEventListener('loadedmetadata', label);
+  /* oxiriga yetganda boshiga qaytadi; oxirida turib ▶ bosilsa boshidan o'qiydi */
+  au.addEventListener('ended', function () { setTimeout(function () { try { au.currentTime = 0; } catch (e) {} draw(); label(); }, 60); });
+  au.addEventListener('play', function () { if (au.duration && au.currentTime >= au.duration - 0.3) { try { au.currentTime = 0; } catch (e) {} } });
   au.addEventListener('seeked', draw);
   au.addEventListener('durationchange', draw);
   /* tezlik: 1× → 0.75× → 0.5× */
